@@ -22,8 +22,8 @@ const bannerPhotographer = (photographer, media) => {
 	<div class="bannerPhotographer">
 			<div class="bannerPhotographer__info">
 				<h2 class="bannerPhotographer__name">${photographer.name}</h2>
-				<h2 class="bannerPhotographer__streetPhotographe">${photographer.city}, ${photographer.country}</h2>
-				<p class="bannerPhotographer__taglinePhotographe">${photographer.tagline}</p>
+				<h2 class="bannerPhotographer__streetCity">${photographer.city}, ${photographer.country}</h2>
+				<p class="bannerPhotographer__tagline">${photographer.tagline}</p>
 			</div>
 			<button>contacter-moi</button>
 			<div class="bannerPhotographer__image">
@@ -33,17 +33,18 @@ const bannerPhotographer = (photographer, media) => {
 		</div>
 	
 	`
-	creatCard("div", ".bannerPhotographer", ".containerPhotographer")
+	// creatCard("div", "bannerPhotographer", "containerPhotographer")
+	// creatCard("div", "bannerPhotographer__info", "bannerPhotographer")
+	// creatCard("h2", "bannerPhotographer__name", "bannerPhotographer__info").innerHTML = `${photographer.name}`
+	// creatCard("h2", "bannerPhotographer__streetPhotographe", "bannerPhotographer__info").innerHTML = `${photographer.city},${photographer.country}`
+	// creatCard("p", "bannerPhotographer__taglinePhotographe", "bannerPhotographer__info").innerHTML = `${photographer.tagline}`
 	
-	creatCard("h2", ".bannerPhotographer__name", ".bannerPhotographer__info").innerHTML = `${photographer.tagline}`
+	// creatCard("button", "bannerPhotographer__streetPhotographe", "bannerPhotographer__image").innerText = "contacter-moi"
+	// creatCard("div", "bannerPhotographer__image", "bannerPhotographer")
+	
+	// const imageBanner = document.createElement('img')
+	// imageBanner.src = `<img src="/Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="">`	
 
-	creatCard("div", ".bannerPhotographer__streetPhotographe", ".bannerPhotographer__info")
-
-	creatCard("div", ".bannerPhotographer", ".containerPhotographer")
-	creatCard("div", ".bannerPhotographer", ".containerPhotographer")
-
-	console.log(photographer, media);
-	document.querySelector("h2").innerHTML = `${photographer.name}`
 }
 
 

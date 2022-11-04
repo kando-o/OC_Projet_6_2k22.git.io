@@ -9,13 +9,13 @@ $brd_blue: 1px solid blue;
 $brd_vio: 2px solid violet;
 $shadow_B: 0 0 5px rgba(black, .5);
 $shadow_Pi: 0 0 5px rgba(pink, .5);
-$margin_b: 0 0 1rem 0;
-$margin_b2: 0 0 2rem 0;
-$margin_0auto: 0 auto;
-$margin_1auto: 1rem auto;
-$margin_2auto: 2rem auto;
-$margin_t: 1rem auto;
-$margin_t2: 2rem auto;
+$mr_b: 0 0 1rem 0;
+$mr_b2: 0 0 2rem 0;
+$mr_0auto: 0 auto;
+$mr_1auto: 1rem auto;
+$mr_2auto: 2rem auto;
+$mr_t: 1rem auto;
+$mr_t2: 2rem auto;
 $radius_2: 2rem;
 $primaire:#901c1c;
 $primaire_2:#d3573c;
@@ -24,39 +24,86 @@ $secondaire_2: #FAFAFA;
 $secondaire_3: #6d6d6d;
 $secondaire_4: #901c1c;
 
+body{
+	font-family: 'DM Sans', sans-serif;
+}
+
 .enTete {
 	width: 95%;
-	margin: $margin_2auto;
+	margin: $mr_2auto;
 	img {
 		
 		width: 20%;
 		object-fit: contain
 	}
 }
+
 .containerPhotographer{
 	width: 100%;
 	max-width: 1500px;
-	margin: $margin_0auto;
+	margin: $mr_0auto;
 
 	.bannerPhotographer {
-		display: flex;
-		justify-content: space-between;
-		width: 95%;
-		height: auto;
-		margin: $margin_0auto;
+		display: grid;
+		grid-template-columns: 1fr 9rem 1fr;
+		max-width: 1240px;
+		margin: $mr_0auto;
 		box-shadow: $shadow_Pi;
 		
-		&__titre{
-			color: #d3573c;
+		&__info {
+			width: calc(100% - 2rem);
+			margin: 0 auto;
 		}
-		img{
+
+		&__name {
+			font-size: 64px;
+			color: $secondaire;
+		}
+
+		&__streetCity {
+			font-size: 24px;
+			color: $primaire;
+		}
+
+		&__tagline {
+			font-size: 18px;
+			color: #6d6d6d;
+		}
+
+		button {
+			display: flex;
+			align-self: center;
+			border-radius: .5rem;
+			background: $primaire;
+			color: white;
+			height: 3rem;
+			border: none;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		&__image {
+			justify-self: end;
+			align-self: center;
+			margin-right: 1rem;
+
+			img {
+				display: flex;
 				width: 10rem;
                 height: 10rem;
-                margin: $margin_t;
+                margin: $mr_t;
                 border-radius: 50%;
                 object-fit: cover;
                 object-position: center;
                 box-shadow: $shadow_B;
+			}
+		}
+	}
+	//Responsive Banner
+	@media screen and(max-width:1300px) {
+		
+		.bannerPhotographer {
+			margin: 0 2rem;
 		}
 	}
 }

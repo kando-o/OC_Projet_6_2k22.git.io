@@ -7,7 +7,7 @@
  */
 export const creatCard = (el, adclass, parent) => {
 	const elName = document.createElement(el);
-	elName.classList.add(adclass);
-	document.querySelector(parent).appendChild(elName)
+	elName.classList.add("."+adclass);
+	document.querySelector("."+parent).appendChild(elName)
 	return elName
 }
