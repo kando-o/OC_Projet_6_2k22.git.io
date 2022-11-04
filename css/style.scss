@@ -1,0 +1,96 @@
+$brd_red: 1px solid red;
+$brd_blue: 1px solid blue;
+$brd_vio: 2px solid violet;
+$shadow_B: 0 0 5px rgba(black, .5);
+$shadow_Pi: 0 0 5px rgba(pink, .5);
+$margin_b: 0 0 1rem 0;
+$margin_b2: 0 0 2rem 0;
+$margin_0auto: 0 auto;
+$margin_1auto: 1rem auto;
+$margin_t: 1rem auto;
+$margin_t2: 2rem auto;
+$radius_2: 2rem;
+$primaire:#901c1c;
+$primaire_2:#d3573c;
+$secondaire: #d3573c;
+$secondaire_2: #FAFAFA;
+$secondaire_3: #6d6d6d;
+$secondaire_4: #901c1c;
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    height: 100vh; // !! voir pour le scroll !!
+	margin: $margin_0auto;
+	// overflow-y: hidden;
+    max-width: 1450px;
+    // box-shadow: $shadow_B;
+    header {
+        display: flex;
+        justify-content: space-around;
+        margin: $margin_1auto;  
+        img {
+            width: 15%;
+            object-fit: contain;
+        }  
+    }
+    &__galeriesPhotographe {
+        display: flex;
+        width: 100%;
+        box-shadow: $shadow_Pi;
+        // margin: 2rem auto;
+    }
+    .container__galeriesPhotographe__itemCard{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        // border: $brd_red;
+        width: 53%;
+        margin: 0 auto;
+    }
+    .cardPhotographe {
+        width: 13.5rem;
+        // border: #d3573c solid 1px ;
+		margin: $margin_b;
+        & .linkToPhotographer {
+            text-decoration: none;
+            color: $primaire_2;
+        }
+        & .imgPhotographe {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            height: 16rem;
+            // box-shadow: $shadow_B;
+            img {
+                width: 10rem;
+                height: 10rem;
+                margin: $margin_t;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center;
+                box-shadow: $shadow_B;
+            }
+        }
+        & .titreNomPhotographe {
+            text-align: center;
+            h3 {
+                font-size: 1rem;
+                font-weight: 100;
+                color: $primaire;
+            }
+            p {
+                font-size: .7rem;
+            }
+            p:nth-child(3){
+                color: $secondaire_3; 
+            }
+        }
+    }
+}
