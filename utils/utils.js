@@ -5,9 +5,15 @@
  * @param {string} parent 
  * @returns {elName}
  */
-export const creatCard = (el, adclass, parent) => {
+export const createCard = (el, addclass, parent) => {
 	const elName = document.createElement(el);
-	elName.classList.add("."+adclass);
-	document.querySelector("."+parent).appendChild(elName)
+
+	if (addclass && Array.isArray(addclass) && addclass.length > 0) 
+		elName.classList.add(...addclass);
+	if (typeof parent == "string") 
+		document.querySelector(parent).appendChild(elName)
+	else parent.appendChild(elName)
+	
 	return elName
 }
+

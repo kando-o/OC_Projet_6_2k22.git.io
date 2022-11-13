@@ -8,7 +8,8 @@ $brd_red: 1px solid red;
 $brd_blue: 1px solid blue;
 $brd_vio: 2px solid violet;
 $shadow_B: 0 0 5px rgba(black, .5);
-$shadow_Pi: 0 0 5px rgba(pink, .5);
+$shadow_Pink: 0 0 5px rgba(pink, .5);
+$shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 $mr_b: 0 0 1rem 0;
 $mr_b2: 0 0 2rem 0;
 $mr_0auto: 0 auto;
@@ -18,27 +19,25 @@ $mr_t: 1rem auto;
 $mr_t2: 2rem auto;
 $radius_2: 2rem;
 $primaire:#901c1c;
-$primaire_2:#d3573c;
 $secondaire: #d3573c;
 $secondaire_2: #FAFAFA;
 $secondaire_3: #6d6d6d;
-$secondaire_4: #901c1c;
 
-body{
+body {
 	font-family: 'DM Sans', sans-serif;
 }
 
 .enTete {
 	width: 95%;
 	margin: $mr_2auto;
+
 	img {
-		
 		width: 20%;
-		object-fit: contain
+		object-fit: contain;
 	}
 }
 
-.containerPhotographer{
+.containerPhotographer {
 	width: 100%;
 	max-width: 1500px;
 	margin: $mr_0auto;
@@ -46,9 +45,9 @@ body{
 	.bannerPhotographer {
 		display: grid;
 		grid-template-columns: 1fr 9rem 1fr;
-		max-width: 1240px;
+		max-width: 1450px;
 		margin: $mr_0auto;
-		box-shadow: $shadow_Pi;
+		box-shadow: $shadow_Pink;
 		
 		&__info {
 			width: calc(100% - 2rem);
@@ -106,5 +105,67 @@ body{
 			margin: 0 2rem;
 		}
 	}
+
 }
+.galeriePhotographer{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 1450px;
+	margin: $mr_0auto;
+
+	.card {
+		display: grid;
+		width: 350px;
+		grid-template-areas: 
+		"image image"
+		"titre info";
+		margin: 2rem;
+		grid-template-columns: 1fr 70px;
+		grid-template-rows: 1fr 30px;
+		gap: 5px;
+		border-radius: $radius_2;
+		overflow: hidden;
+		box-shadow: $shadow_primaire;
+
+		&__imageCard {
+			grid-area: image;
+			height: 300px;
+
+			img {
+				object-fit: cover;
+				object-position: center;
+				object-position: top;
+				width: 100%;
+				height: 100%;
+			}
+
+			video {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+
+		&__titre {
+			grid-area: titre;
+			margin-left: 1rem;
+
+			h3 {
+				font-size: .8rem;
+				color: $primaire;
+			}
+		}
+
+		&__info {
+			display: flex;
+			margin-right: 1rem;
+			justify-content: end;
+			gap: .5rem;
+			grid-area: info;
+			color: $primaire;
+		}
+	}
+}
+
 	
