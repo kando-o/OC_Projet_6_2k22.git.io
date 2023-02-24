@@ -5,7 +5,6 @@ console.log(getData());
 const contentMain =  (data) => {
 	let containerGaleriesItemCard = document.querySelector('.container__galeriesPhotographe__itemCard')
 	data.photographers.map((el) => {
-		// console.log(el);
 		containerGaleriesItemCard.innerHTML += 
 		`
 		<div class="cardPhotographe ${el.id}">
@@ -16,7 +15,7 @@ const contentMain =  (data) => {
 				</div>
 			</a>
 			<div class="titreNomPhotographe">
-				<h3>${el.city}</h3>
+				<h3>${el.city}</h3> 
 				<p>${el.tagline}</p>
 				<p>${el.price}/jr</p>
 			</div>
@@ -29,4 +28,3 @@ window.onload = () => { // Permet de lancer la fonction seulement quand la page 
 	getData() 
 	.then((data) => {return contentMain(data)})
 }
-
