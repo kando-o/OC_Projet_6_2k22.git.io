@@ -1,60 +1,91 @@
+import { bannerPhotographer } from "../../components/bannerPhotographer.js";
 import { getData } from "../../utils/API.js";
-import { creatCard } from "../../utils/utils.js";
+import { createDivTrie, addTrieListeners } from "../../utils/utils.js";
 
-// crée une Api pour recuperer les données à part! OK !
-//Utiliser le locale storage
-// TODO:faire un type module pour les fonctions voir explication
-// favoriser l'utilisation des const
-// 
+import LightBox from "../../components/lightbox.js";
+import { overlay } from "../../components/overlay.js";
+
+/**
+ * @param {object} media 
+ * @param {object} photographer 
+ * @returns div card
+ */
+const createDivGaleriePhotographer = (media, photographer) => {
+	const galeriePhotographer = document.querySelector('.galeriePhotographer')
+	console.log();
+	let objetMedia = ""
+	let nomde = photographer.name.split(' ').shift() // renvoi un tableau de string séparer par une virgule et suprime le première el du tableau
+	nomde = nomde.split('-').join(' ') // renvoi un tablean de string sans le *-* entre les string et renvoi une chaine de carractère
+	
+	if (media.hasOwnProperty('image')) {
+		objetMedia = `<img src="/Sample Photos/${nomde}/${media.image}" alt="" tabindex="0" class="card__imageCard">`;
+	} else if (media.hasOwnProperty('video')) {
+		objetMedia = `<video src="/Sample Photos/${nomde}/${media.video}" alt="" controls tabindex="0" class="card__imageCard"></video> `
+	}
+	
+	const card = document.createElement("div")
+	card.classList.add('card')
+	card.media = media;
+	
+	card.innerHTML = 
+	`
+		${objetMedia}
+		<h3 class="card__titre">${media.title}</h3>
+		<div class="card__info">
+			<p class="card__like">${media.likes}</p>
+			<span>&#x2766</span>
+		</div>
+	`
+	galeriePhotographer.appendChild(card)
+	return card
+} 
 
 const getUrl = (data) => {
-const url = new URL(location.href); // transforme l'url en un objet pratique | *ajoute des méthodes à l'URL*
-const urlId = url.searchParams.get('id') // get params "id" in url
-const IDPHOTOGRAPHER = data.photographers.find((el) => {return el.id == urlId}); // search in *data.photographer* el.photographerId == urlId
-const IDMEDIA = data.media.find((el) => {return el.photographerId == urlId}); // search in *data.media* el.media == urlId
-bannerPhotographer(IDPHOTOGRAPHER, IDMEDIA)
-
-}
-const bannerPhotographer = (photographer, media) => {
-	const banner = document.querySelector('.containerPhotographer')
-	banner.innerHTML =  
-	`
-	<div class="bannerPhotographer">
-			<div class="bannerPhotographer__info">
-				<h2 class="bannerPhotographer__name">${photographer.name}</h2>
-				<h2 class="bannerPhotographer__streetPhotographe">${photographer.city}, ${photographer.country}</h2>
-				<p class="bannerPhotographer__taglinePhotographe">${photographer.tagline}</p>
-			</div>
-			<button>contacter-moi</button>
-			<div class="bannerPhotographer__image">
-				<img src="/Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="" srcset="">
-			</div>
-			
-		</div>
-	
-	`
-	creatCard("div", ".bannerPhotographer", ".containerPhotographer")
-	
-	creatCard("h2", ".bannerPhotographer__name", ".bannerPhotographer__info").innerHTML = `${photographer.tagline}`
-
-	creatCard("div", ".bannerPhotographer__streetPhotographe", ".bannerPhotographer__info")
-
-	creatCard("div", ".bannerPhotographer", ".containerPhotographer")
-	creatCard("div", ".bannerPhotographer", ".containerPhotographer")
-
-	console.log(photographer, media);
-	document.querySelector("h2").innerHTML = `${photographer.name}`
+	const url = new URL(location.href); // transforme l'url en un objet pratique | *ajoute des méthodes à l'URL*
+	const urlId = url.searchParams.get('id') // get params "id" in url
+	const IDPHOTOGRAPHER = data.photographers.find(el => el.id == urlId); // search in *data.photographer* el.photographerId == urlId
+	const media = data.media.filter(el => el.photographerId == IDPHOTOGRAPHER.id); // search in *data.media* el.photographerId == IDPHOTOGRAPHER.id
+	bannerPhotographer(IDPHOTOGRAPHER)
+	return media.map((media) => createDivGaleriePhotographer(media, IDPHOTOGRAPHER), overlay(IDPHOTOGRAPHER, media)
+	)
 }
 
+//Au chargement de la page
+window.onload = () => {
+	const myLightBox = new LightBox()
+	createDivTrie();
+	getData() // Recuperation de la data
+	.then(data => {
+		console.log("incoming data");
+		return main(data);
+	})
+	.then(cards => {
+		console.log(cards);
+		addTrieListeners();
+		cards.map(card => {
+			const img = card.querySelector(".card__imageCard")
+			img.onclick = ()=>{
+				myLightBox.openMedia(img.src)
+			}
+		})
+
+		myLightBox.setMedia( cards.map((card,index) => {
+			const elem = card.querySelector(".card__imageCard");
+			const title = card.querySelector(".card__titre").textContent;
+			return {
+				index,
+				type : elem.tagName,
+				src : elem.src,
+				title
+			}
+		}))
+
+		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow") }
+		myLightBox.onHide = ()=> { document.querySelector(".containerPhotographer").style.display = 'block'; console.log("onHide") }
+	})
+}
 
 function main(data) {
-	getUrl(data)
-	
+	console.log(data.photographers);
+	return getUrl(data)
 }
-
-window.onload = () => {
-	getData()
-	.then(data => {console.log("incoming data"); return main(data)})
-}
-
-

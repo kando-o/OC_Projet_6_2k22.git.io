@@ -1,0 +1,34 @@
+$primaire:#901c1c;
+$secondaire: #DB8876;
+$secondaire_2: #FAFAFA;
+$secondaire_3: #6d6d6d;
+$radius_2: 2rem;
+
+.overlay {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 24px;
+	font-weight: 500;
+	display: flex;
+	justify-content: space-around;
+	position: fixed;
+	bottom: 0;
+	right: 2rem;
+	padding: 1rem 3rem;
+	background: $secondaire;
+	border-radius: 1rem 1rem 0 0;
+	cursor: pointer;
+	transition: .3s;
+	
+	&:hover {
+		transform: scale(1.1);
+		border: #901c1c solid;
+	}
+
+	&__nbrTotalLikes {
+		padding-right: 2rem;
+	}
+	
+	&__prixJour {
+		padding-left: 2rem;
+	}
+}

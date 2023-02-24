@@ -10,9 +10,8 @@ const API = {
 */
 
 export const getData = () => {
-	// promise
 	return fetch(API.url + API.request_data) // chemin vers le data.json
-	.then(res => res.json())
+	.then(res => res.json()) // transform le json
 
 	.catch(function(error) {
 		console.log(error)

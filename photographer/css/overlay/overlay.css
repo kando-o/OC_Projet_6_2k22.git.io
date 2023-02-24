@@ -1,0 +1,25 @@
+.overlay {
+  font-family: "DM Sans", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  right: 2rem;
+  padding: 1rem 3rem;
+  background: #DB8876;
+  border-radius: 1rem 1rem 0 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.overlay:hover {
+  transform: scale(1.1);
+  border: #901c1c solid;
+}
+.overlay__nbrTotalLikes {
+  padding-right: 2rem;
+}
+.overlay__prixJour {
+  padding-left: 2rem;
+}/*# sourceMappingURL=overlay.css.map */
