@@ -17,13 +17,16 @@ export const createCard = (el, addclass, parent) => {
 	return elName
 }
 
+/**
+ *   création de la div Trie
+ */
 export const createDivTrie = () => {
 	let banner = document.querySelector('.bannerPhotographer')
 	banner.insertAdjacentHTML('afterend', 
 	`	
 			<div class="trieAll">
 				<p>Trier par</p>
-				<label for="trie"  aria-haspopup="true aria-expanded="false>
+				<label for="trie" aria-haspopup="true" aria-expanded="false">
 					<select name="trie" id="Trie">
 						<option class="popularite" value="popularite">Popularité</option>
 						<option class="date" value="date">Date</option>
@@ -35,6 +38,9 @@ export const createDivTrie = () => {
 	);
 }
 
+/**
+* ajout de l'évènement sur le trie :date :popularité :titre
+*/
 export const addTrieListeners = () => {
 	const categorie = document.getElementById('Trie')
 	console.log(categorie.value);
@@ -46,14 +52,12 @@ export const addTrieListeners = () => {
 		// detach cards
 		cards.map((el) => parent.removeChild(el) );
 		
-		// sort cards
 		if (e.target.value == 'popularite') {
 			cards.sort((a , b) => {
 				const t1 = a.media.likes
 				const t2 = b.media.likes
 				return t2-t1
 			})
-			// nodeTab
 		} else if (e.target.value == 'date') {
 			cards.sort((a,b) => {
 				const t1 = a.media.date
@@ -67,14 +71,12 @@ export const addTrieListeners = () => {
 				const t2 = b.media.title
 				return t1.localeCompare(t2)
 			})
-
-			console.log(cards.map(e=> e.media.date))
 		}
 		// attach cards
 		cards.map((el) => parent.appendChild(el) );
 	}
 
-	categorie.onchange = categorie.onclick = sortCards
-	const options = [...categorie.querySelectorAll('option')]
-	options.map(opt => opt.onclick=sortCards)
+	// au changement de des options = évènement au clique sur catégorie => (sortCards)
+	categorie.onchange = categorie.onclick = sortCards 
+	const options = [...categorie.querySelectorAll('option')] 
 }

@@ -4,11 +4,9 @@ const API = {
 }
 
 /**
- * 
- * @param {function} callback 
- * @return {Promise}
-*/
-
+ * @param {function} callback
+ * @returns {Promise} | Fetche API
+ */
 export const getData = () => {
 	return fetch(API.url + API.request_data) // chemin vers le data.json
 	.then(res => res.json()) // transform le json
