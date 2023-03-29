@@ -4,12 +4,12 @@ export default class LightBox {
 
 	constructor() {
 		const body = document.querySelector('body');
-		
+
 		const lightBox = document.createElement('figure');
 		const img = document.createElement('img');
 		const video = document.createElement('video');
 		const title = document.createElement("figcaption");
-		
+
 		const left = document.createElement("span");
 		left.textContent = "<"
 		left.classList.add("lightbox__arrow", "left")
@@ -58,8 +58,19 @@ export default class LightBox {
 		this.right.onclick = ()=>{ that.nextMedia() }
 		this.close.onclick = ()=>{ that.hide() }
 
+		this.inputListeners = (e)=> {
+			switch (e.code) {
+				case "ArrowLeft": this.prevMedia(); break;
+				case "ArrowRight": this.nextMedia(); break;
+				case "Escape": this.hide(); break;
+				case "Space": this.play(); break;
+			}
+		}
+
 		this.onShow = ()=>{}
 		this.onHide = ()=>{}
+		this.onNextMedia = ()=>{}
+		this.onPrevMedia = ()=>{}
 	}
 
 	setMedia (array) {
@@ -67,9 +78,15 @@ export default class LightBox {
 	}
 	
 	// affichage de la carde
+	/*
+	 * affichage de l'image || vidéo au click sur une card
+	 * @param {array} this.media | tableau initié par setMedia 
+	 */
 	_displayMedia() {
 		const elem = this.media[this.index];
-		console.log("type:"+elem.type)
+		console.log("title:" + elem.title,
+					"src:"+ elem.src,
+					"type:"+ elem.type)
 		if (elem.type.toLowerCase() === 'video') {
 			this.img.style.display = 'none';
 			this.video.src = elem.src
@@ -82,32 +99,48 @@ export default class LightBox {
 		this.title.textContent = elem.title;
 	}
 
-	// au click sur le fermeture ou à l'éxterieur du carroussel
+	/**
+	 * cacher la lightbox au click sur la croix
+	 */
 	hide() {
-		this.lightbox.style.display = "none"
-		this.onHide()
+		this.lightbox.style.display = "none";
+		this.onHide();
+		document.removeEventListener("keydown", this.inputListeners); 
 	}
 
-	//au click sur la carte affichache du carrouselle et seulement sur la carte pas sur les likes
+	/**
+	 * afficher la lightbox au click sur une card/img
+	 */
 	show () {
-		this.lightbox.style.display = "block"
-		this.onShow()
+		this.lightbox.style.display = "block";
+		this.onShow();
+		document.addEventListener("keydown", this.inputListeners);
 	}
-
+	
+	/**
+	 * @param {string} src url du media
+	 */
 	openMedia(src) {
-		const elem = this.media.find(media => media.src===src)
+		const elem = this.media.find(media => media.src===src);
 		this.index = elem.index;
 		this._displayMedia();
-		this.show()
+		this.show();
 	}
-
+	
+	
 	nextMedia() {
 		this.index = (this.index+1) % this.media.length;
 		this._displayMedia();
+		this.onNextMedia()
 	}
 
 	prevMedia() {
 		this.index = (this.media.length + this.index-1) % this.media.length;
 		this._displayMedia();
+		this.onPrevMedia()
+	}
+
+	play() {
+		
 	}
 }

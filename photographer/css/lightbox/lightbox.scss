@@ -1,9 +1,6 @@
-$shadow_B: 0 0 5px rgba(black, .5);
-$shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 $primaire:#901c1c;
-$secondaire: #d3573c;
-$secondaire_2: #FAFAFA;
-$secondaire_3: #6d6d6d;
+$shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
+
 
 .lightBox {
 	font-family: 'DM Sans', sans-serif;
@@ -29,7 +26,6 @@ $secondaire_3: #6d6d6d;
 		height : 80%;
 		top : 50%;
 		transform : translateY(-50%);
-
 	}
 
 	& .lightBox__video {
@@ -63,7 +59,6 @@ $secondaire_3: #6d6d6d;
 			&:hover {
 				transform: scale(1.1);
 				color: red
-			
 			}
 		}
 
@@ -76,7 +71,6 @@ $secondaire_3: #6d6d6d;
 			&:hover {
 				transform: scale(1.1);
 				color: red
-			
 			}
 		}		
 			

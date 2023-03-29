@@ -14,12 +14,9 @@
 }
 .lightBox .lightBox__image {
   position: relative;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: center;
-     object-position: center;
-  -o-object-position: top;
-     object-position: top;
+  object-fit: contain;
+  object-position: center;
+  object-position: top;
   width: calc(100% - 128px);
   margin: 0 auto;
   height: 80%;
