@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,83 +7,80 @@
     <link rel="stylesheet" href="/photographer/css/photographer/style.css">
     <link rel="stylesheet" href="/photographer/css/lightbox/lightbox.css">
     <link rel="stylesheet" href="/photographer/css/overlay/overlay.css">
-	<link rel="icon" type="image/x-icon" href="/asset/images/logo.png">
+	<link rel="stylesheet" href="/photographer/css/Formulaire/style.css">
+	<link rel="icon" type="image/x-icon" href="/asset/account/account.png">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gayathri:wght@100&display=swap" rel="stylesheet">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Photographers</title>
-
 </head>
-	<body>
-		
-		<header class="enTete">
-			<a href="/index.html">
-				<img src="/asset/images/logo.png" alt="logo FishEye">
-			</a>
-		</header>
 
-		<section class="bgFormulaire" aria-hidden="true" role="backGround"> 
+<body>
+	
+	<header class="enTete">
+		<a href="/index.html">
+			<img src="/asset/images/logo.png" alt="logo FishEye">
+		</a>
+	</header>
 
-			<form class="formulaire" aria-label="formulaire" role="dialog" aria-labelledby="titreFormulaire">
-				<div class="titre_formulaire">
-					<h3 id="titreFormulaire">Contactez-moi</h3>
-					<button class="btnFormulaireClose"></button>
-					<h2></h2>
-					<br>
-				</div>
+	<section class="bgFormulaire" aria-hidden="true" role="backGround"> 
 
-				<div>
-					<label for="prenom">Prénom</label>
-					<input type="text" placeholder="Prénom" name="prenom" id="prenom" class="prenom1" required aria-required="true">
-					<span class="mesgErrorPrenom"></span>
-				</div>
+		<form class="formulaire" aria-label="formulaire" role="dialog" aria-labelledby="titreFormulaire">
+			<div class="titre_formulaire">
+				<h2 id="titreFormulaire" tabindex="0">Contactez-moi</h2>
+				<button class="btnFormulaireClose" tabindex="0"></button>
+				<h3 tabindex="0"></h3>
+			</div>
 
-				<div>                
-					<label for="nom">Nom</label>
+			<div>
+				<label for="prenom">Prénom</label>
+				<input type="text" placeholder="Prénom" name="prenom" id="prenom" class="prenom1" required aria-required="true">
+				<span class="mesgErrorPrenom"></span>
+			</div>
+
+			<div>                
+				<label for="nom">Nom
 					<input type="text" placeholder="Nom" name="nom" id="nom" class="nom1" required aria-required="true">
 					<span class="mesgErrorNom"></span>
+				</label>
+			</div>
 
-				</div>
-
-				<div>
-					<label for="Email">Email</label>
+			<div>
+				<label for="Email">Email
 					<input type="email" placeholder="Email" name="email" id="email" required aria-required="true">
 					<span class="mesgErrorEmail"></span>
-				</div>
+				</label>
+			</div>
 
-				<div>
-					<label for="message">Votre message</label>
-					<br>
+			<div>
+				<label for="message">Votre message
 					<textarea name="message" id="message" cols="30" rows="7" placeholder="Votre message"></textarea>
 					<span class="mesgErrorArea"></span>
-				</div>
-
-				<button class="submit" type="submit"> Envoyer </button>
-				
-			</form>
-
-			<div class="bg-modal-merci">
-				<div class="modal_merci">
-				<span class="close-modal-merci"></span>
-				<p>Votre forulaire a bien été pris en compte</p>
-				<button class="btn-merci">Merci</button>
-				</div>
+				</label>
 			</div>
 
-		</section>
+			<button class="submit" type="submit"> Envoyer </button>
+			
+		</form>
 
-		<main class="containerPhotographer">
-			<!-- info photographer -->
-			<div class="bannerPhotographer"></div>
-			<!-- function bannerPhotographer -->
-			<div class="galeriePhotographer">
-				<!-- function galeriePhotographer -->
+		<div class="bg-modal-merci">
+			<div class="modal_merci">
+			<span class="close-modal-merci" tabindex="0"></span>
+			<p>Votre forulaire a bien été pris en compte</p>
+			<button class="btn-merci">Merci</button>
 			</div>
-		</main>
-		<script src="/photographer/script/app.js" type="module"></script>
-	</body>
+		</div>
+
+	</section>
+
+	<main class="containerPhotographer">
+		<!-- info photographer -->
+		<div class="bannerPhotographer"></div>
+		<!-- function bannerPhotographer -->
+		<div class="galeriePhotographer">
+			<!-- function galeriePhotographer -->
+		</div>
+	</main>
+	<script src="/photographer/script/app.js" type="module"></script>
+</body>
 </html>

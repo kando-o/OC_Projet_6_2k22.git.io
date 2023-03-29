@@ -1,8 +1,5 @@
-$primaire:#901c1c;
+
 $secondaire: #DB8876;
-$secondaire_2: #FAFAFA;
-$secondaire_3: #6d6d6d;
-$radius_2: 2rem;
 
 .overlay {
 	font-family: 'DM Sans', sans-serif;
@@ -31,4 +28,26 @@ $radius_2: 2rem;
 	&__prixJour {
 		padding-left: 2rem;
 	}
+
+}
+@media screen and (max-width:750px) {
+	.overlay {
+		justify-content: center;
+		padding: .5rem 2.5rem;
+	
+	}
+}
+@media screen and (max-width:400px) {
+	.overlay {
+		padding: .5rem 9rem;
+		left: 50%;
+		transform: translate(-50%, -0%);
+		transition: none;
+		
+		&:hover {
+			transform: none;
+			// border: #901c1c solid;
+		}
+	}
+
 }

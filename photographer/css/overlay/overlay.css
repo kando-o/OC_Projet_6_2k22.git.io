@@ -22,4 +22,22 @@
 }
 .overlay__prixJour {
   padding-left: 2rem;
+}
+
+@media screen and (max-width: 750px) {
+  .overlay {
+    justify-content: center;
+    padding: 0.5rem 2.5rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  .overlay {
+    padding: 0.5rem 9rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    transition: none;
+  }
+  .overlay:hover {
+    transform: none;
+  }
 }/*# sourceMappingURL=overlay.css.map */

@@ -1,0 +1,198 @@
+.bgFormulaire {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(51, 51, 51, 0.8274509804);
+  z-index: 97;
+  /* Media Queries FORMULAIRE  */
+}
+.bgFormulaire .formulaire {
+  display: block;
+  position: fixed;
+  width: 669px;
+  min-width: 320px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #DB8876;
+  border-radius: 1em;
+  box-shadow: 0 0 5px rgba(144, 28, 28, 0.5);
+  z-index: 100;
+}
+.bgFormulaire .modal_merci {
+  display: block;
+  position: fixed;
+  width: 669px;
+  height: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #DB8876;
+  border-radius: 1em;
+  box-shadow: 0 0 5px rgba(144, 28, 28, 0.5);
+  z-index: 99;
+}
+.bgFormulaire .close-modal-merci::after,
+.bgFormulaire .close-modal-merci::before {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  content: "";
+  height: 2.5rem;
+  width: 0.3rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+.bgFormulaire .close-modal-merci::before {
+  transform: rotate(45deg);
+}
+.bgFormulaire .close-modal-merci::after {
+  transform: rotate(-45deg);
+}
+.bgFormulaire .modal_merci p {
+  text-align: center;
+  position: relative;
+  font-size: 1.5em;
+  top: 25rem;
+  color: white;
+}
+.bgFormulaire .btn-merci {
+  position: relative;
+  display: block;
+  top: 30rem;
+  width: 25%;
+  padding: 0.6em;
+  font-size: 1.5em;
+  color: white;
+  margin: 0 auto;
+  background-color: darkred;
+  border-radius: 0.2em;
+  border: none;
+  cursor: pointer;
+}
+.bgFormulaire .champInputText-invalid {
+  box-shadow: red 4px 4px 5px;
+}
+.bgFormulaire .mesgErrorPrenom,
+.bgFormulaire .mesgErrorNom,
+.bgFormulaire .mesgErrorEmail {
+  color: red;
+  margin-left: 2rem;
+  font-size: 1.2rem;
+}
+.bgFormulaire .champInputText-valid {
+  box-shadow: green 4px 4px 5px;
+}
+.bgFormulaire .titre_formulaire {
+  margin: 0.5em 2em;
+}
+.bgFormulaire .titre_formulaire h2 {
+  font-size: 3.5em;
+  font-weight: 100;
+}
+.bgFormulaire .formulaire input {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  font-size: 2em;
+  border: none;
+  outline: none;
+  border-radius: 0.1em;
+  margin: 0.1em auto;
+}
+.bgFormulaire .formulaire label {
+  font-size: 1.5em;
+  margin: 1.3em;
+  color: #312E2E;
+}
+.bgFormulaire .formulaire textarea {
+  width: 90%;
+  margin-left: 2.5em;
+  border-radius: 0.5em;
+  outline: none;
+  border: none;
+  resize: none;
+}
+.bgFormulaire .submit {
+  margin-bottom: 2rem;
+  display: block;
+  width: 25%;
+  padding: 0.6em;
+  font-size: 1.5em;
+  color: whitesmoke;
+  margin: 0.1em 1.4em;
+  background-color: darkred;
+  border-radius: 0.2em;
+  border: none;
+  cursor: pointer;
+}
+.bgFormulaire .btnFormulaireClose {
+  border: none;
+  opacity: 1;
+}
+.bgFormulaire .btnFormulaireClose::before,
+.bgFormulaire .btnFormulaireClose::after {
+  position: absolute;
+  content: " ";
+  right: 3em;
+  top: 2em;
+  width: 0.4em;
+  height: 3em;
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+.bgFormulaire .btnFormulaireClose::after {
+  transform: rotate(-40deg);
+}
+.bgFormulaire .btnFormulaireClose::before {
+  transform: rotate(40deg);
+}
+@media screen and (max-width: 750px) {
+  .bgFormulaire .formulaire {
+    width: 70%;
+    height: 37rem;
+    min-width: 300px;
+    margin: 0rem auto;
+  }
+  .bgFormulaire .btnFormulaireClose::before,
+  .bgFormulaire .btnFormulaireClose::after {
+    height: 2rem;
+    right: 1.5rem;
+    top: 1rem;
+  }
+  .bgFormulaire .titre_formulaire {
+    font-size: 0.5rem;
+  }
+  .bgFormulaire .titre_formulaire h3 {
+    font-size: 1rem;
+  }
+  .bgFormulaire .formulaire label {
+    margin: 1rem;
+  }
+  .bgFormulaire .formulaire input {
+    font-size: 1.5rem;
+  }
+  .bgFormulaire .formulaire textarea {
+    margin-left: 1rem;
+  }
+  .bgFormulaire .submit {
+    width: fit-content;
+    margin: 0.5em 0.7em;
+  }
+  .bgFormulaire .modal_merci {
+    width: 70%;
+    height: 37rem;
+    min-width: 300px;
+    margin: 0rem auto;
+  }
+  .bgFormulaire .btn-merci {
+    width: fit-content;
+    margin-top: -1rem;
+  }
+}/*# sourceMappingURL=style.css.map */
