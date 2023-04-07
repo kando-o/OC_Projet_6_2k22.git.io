@@ -13,7 +13,7 @@ body {
   margin: 2rem auto;
 }
 .enTete img {
-  width: 20%;
+  width: 15%;
   object-fit: contain;
   transition: 0.3s;
 }
@@ -21,6 +21,11 @@ body {
   transform: scale(1.1);
 }
 
+@media screen and (max-width: 750px) {
+  .enTete img {
+    width: 40%;
+  }
+}
 .containerPhotographer {
   width: 100%;
   max-width: 1500px;
@@ -109,6 +114,11 @@ body {
   }
   .containerPhotographer .bannerPhotographer__info {
     text-align: center;
+  }
+}
+@media screen and (max-width: 350px) {
+  .containerPhotographer .bannerPhotographer {
+    margin: 0 1rem;
   }
 }
 

@@ -1,5 +1,3 @@
-
-
 export default class LightBox {
 
 	constructor() {
@@ -77,10 +75,9 @@ export default class LightBox {
 		this.media = [...array]
 	}
 	
-	// affichage de la carde
+	
 	/*
-	 * affichage de l'image || vidéo au click sur une card
-	 * @param {array} this.media | tableau initié par setMedia 
+	 * affichage de l'image au click sur la card / affichage vidéo au click sur une card
 	 */
 	_displayMedia() {
 		const elem = this.media[this.index];
@@ -127,13 +124,18 @@ export default class LightBox {
 		this.show();
 	}
 	
-	
+	/**
+	 * next media dans la ligthbox
+	 */
 	nextMedia() {
 		this.index = (this.index+1) % this.media.length;
 		this._displayMedia();
 		this.onNextMedia()
 	}
 
+	/**
+	 * prevMedia media dans la ligthbox
+	 */
 	prevMedia() {
 		this.index = (this.media.length + this.index-1) % this.media.length;
 		this._displayMedia();

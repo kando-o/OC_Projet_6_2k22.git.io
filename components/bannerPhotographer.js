@@ -12,10 +12,8 @@ const formulaireEvent = ( namePhotographe ) => {
 	const btnFormulaireClose = document.querySelector('.btnFormulaireClose')
 	const prenom = document.getElementById('prenom');
 	const nom = document.getElementById('nom');
-	const email = document.getElementById('email');
 	const spanErrorPrenom = document.querySelector('.mesgErrorPrenom');
 	const spanErrorNom = document.querySelector('.mesgErrorNom');
-	const spanErrorEmail = document.querySelector('.mesgErrorEmail');
 	
 	const btnModalMerci_close = document.querySelector('.close-modal-merci')
 	const modal_merci = document.querySelector('.modal_merci')
@@ -39,42 +37,42 @@ const formulaireEvent = ( namePhotographe ) => {
 	})
 
 	/**
-	 * @function validationField | validation des champs: nom, prénom
+	 * ajout des modifieur *valid, invalid* si champs nom, prénom valide ou non
 	 * @param {string | pField} | champs: nom, prénom  
-	 * @param {string | state} | boolean
+	 * @param {boolean} champ state
 	 * @returns {boolean}
 	 */
 	function validationField (pField , state){
 		if (state == true) {
-			console.log('ChampsInputText OK', pField );
+			console.log('ChampsInputText OK');
 			pField.classList.remove('champInputText-invalid')
 			pField.classList.add('champInputText-valid');
 			return true
 		} 
 		else {
-			console.log('ChampsInputText NOK', pField.value.length);
+			console.log('ChampsInputText NOK');
 			pField.classList.add('champInputText-invalid')
 			pField.classList.remove('champInputText-valid')
 			return false
 		}
 	} 
 	
-	prenom.addEventListener('change', (e) => { 
-		console.log("prénom", prenom);
+	prenom.addEventListener('change', () => { 
+		console.log("prénom:" + " " + prenom.value);
 		let state = validation(prenom.value)
 		validationField(prenom, state)
 		return state
 	})
 	
-	nom.addEventListener('change', (e) => {
-		console.log("nom", nom.value); 
-		let state = validation(nom.value)
+	nom.addEventListener('change', () => {
+		console.log("nom:" + " " + nom.value); 
+		let state = validationNom(nom.value)
 		validationField(nom, state)
 		return state
 	})
 
 	/**
-	 * 
+	 * validation du champs prénom
 	 * @param {string | pName} | champs: nom, prénom 
 	 * @returns {string | champInputText} | boolean
 	 */
@@ -108,42 +106,79 @@ const formulaireEvent = ( namePhotographe ) => {
 			console.log('ChampPrénom --> All condition true');
 			champInputText = true;
 			msgErrorprenom = " ✔️ ";
-			msgErrorNom = " ✔️ "
 		}
 	
 		if (msgErrorprenom ){
 			spanErrorPrenom.innerHTML = msgErrorprenom
 		}
-		if (msgErrorNom){
-			spanErrorNom.innerHTML = msgErrorNom
-		}
+
 		return champInputText;
+	}
+	
+	/**
+	 * Regex validation du champ NOM
+	 * @returns {boolean}
+	 */
+	function validationNom() {
+		const fielNom = document.getElementById('nom');
+		let champInputText = false
+		let msgError;
+
+		if (!/[a-z]/g.test(fielNom.value)) {
+			console.log('ChampNom --> il manque une minuscule');
+			msgError = 'il manque une minuscule';
+		} else if (!/[A-Z]/g.test(fielNom.value)) {
+			console.log('ChampNom --> il manque une majuscule');
+			msgError = 'il manque une majuscule'
+		} else if (fielNom.value.length < 2) {
+			console.log('ChampNom --> il faut au moins 2 carractères');
+			msgError = 'il faut au moins 2 carractères'
+		} else {
+			console.log('ChampNom --> All condition true');
+			champInputText = true
+		}
+
+		if (champInputText == true) {
+			console.log('ChampNom --> ChampsInputText OK');
+			spanErrorNom.innerHTML = ""
+			fielNom.classList.remove('champInputText-invalid')
+			fielNom.classList.add('champInputText-valid')
+			msgError = " ✔️ " 
+			return true
+		} else {
+			console.log('ChampNom --> ChampsInputText NOK');
+			spanErrorNom.innerHTML = msgError
+			fielNom.classList.remove('champInputText-valid')
+			fielNom.classList.add('champInputText-invalid')
+			return false
+		}
 	}
 
 	formulaire.addEventListener('submit', (e) => {
-		console.log('clickForm');
 
 		e.preventDefault()
-		if (validation(prenom)) {
+		if (validation(prenom) == true && validationNom() == true) {
 			console.log('condition validation Nom OK | Prénom OK');
 			formulaire.style.display = "none"
 			modal_merci.style.display = "block"
 		} else {
 			console.log('condition validation Nom NOK | Prénom NOK');
+			e.preventDefault()
 		}
-	})		
+	})
+
 	btnModalMerci.addEventListener('click', () => {
 		bgFormulaire.style.display = "none";
 		console.log(`Le formulaire au nom de ${namePhotographe} à bien été envoyer`);
 	})
+
 	btnModalMerci_close.addEventListener('click', () => {
 		bgFormulaire.style.display = "none"
-		console.log("formulaire close");
 	})	
 }
 
 /**
- * @function | création de la bannière
+ * création de la bannière
  * @param {object} photographer 
  */
 export const bannerPhotographer = (photographer) => {

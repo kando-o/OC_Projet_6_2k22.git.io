@@ -30,23 +30,33 @@ $secondaire: #DB8876;
 	}
 
 }
+
 @media screen and (max-width:750px) {
 	.overlay {
-		justify-content: center;
+		// justify-content: center;
 		padding: .5rem 2.5rem;
 	
 	}
+
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width:450px) {
 	.overlay {
-		padding: .5rem 9rem;
+		width: 83%;
+		min-width: 238px;
 		left: 50%;
 		transform: translate(-50%, -0%);
 		transition: none;
+		padding: .5rem .5rem;
+
+		&__nbrTotalLikes,
+		&__prixJour {
+			padding: 0;
+			justify-content: space-around;
+		}
 		
 		&:hover {
 			transform: none;
-			// border: #901c1c solid;
+			border: none;
 		}
 	}
 

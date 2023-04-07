@@ -8,55 +8,47 @@
     <link rel="stylesheet" href="/photographer/css/lightbox/lightbox.css">
     <link rel="stylesheet" href="/photographer/css/overlay/overlay.css">
 	<link rel="stylesheet" href="/photographer/css/Formulaire/style.css">
-	<link rel="icon" type="image/x-icon" href="/asset/account/account.png">
+	<link rel="icon" type="image/x-icon" href="/asset/images/Vector.svg">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Photographers</title>
+    <title>Photographer</title>
 </head>
 
 <body>
-	
-	<header class="enTete">
-		<a href="/index.html">
-			<img src="/asset/images/logo.png" alt="logo FishEye">
-		</a>
-	</header>
+	<section class="bgFormulaire" aria-hidden="true"> 
 
-	<section class="bgFormulaire" aria-hidden="true" role="backGround"> 
-
-		<form class="formulaire" aria-label="formulaire" role="dialog" aria-labelledby="titreFormulaire">
+		<form class="formulaire" aria-label="form" aria-labelledby="titreFormulaire" autofocus>
 			<div class="titre_formulaire">
 				<h2 id="titreFormulaire" tabindex="0">Contactez-moi</h2>
 				<button class="btnFormulaireClose" tabindex="0"></button>
-				<h3 tabindex="0"></h3>
+				<h3 tabindex="0">insertion du nom du photographe en js</h3>
 			</div>
 
 			<div>
 				<label for="prenom">Prénom</label>
-				<input type="text" placeholder="Prénom" name="prenom" id="prenom" class="prenom1" required aria-required="true">
+				<input type="text" placeholder="Prénom" name="prenom" id="prenom" required aria-required="true">
 				<span class="mesgErrorPrenom"></span>
 			</div>
 
 			<div>                
 				<label for="nom">Nom
-					<input type="text" placeholder="Nom" name="nom" id="nom" class="nom1" required aria-required="true">
+					<input type="text" placeholder="Nom" name="nom" id="nom" required aria-required="true">
 					<span class="mesgErrorNom"></span>
 				</label>
 			</div>
 
 			<div>
-				<label for="Email">Email
+				<label for="email">Email
 					<input type="email" placeholder="Email" name="email" id="email" required aria-required="true">
 					<span class="mesgErrorEmail"></span>
 				</label>
 			</div>
 
 			<div>
-				<label for="message">Votre message
+				<label for="message">Votre message</label>
 					<textarea name="message" id="message" cols="30" rows="7" placeholder="Votre message"></textarea>
 					<span class="mesgErrorArea"></span>
-				</label>
 			</div>
 
 			<button class="submit" type="submit"> Envoyer </button>
@@ -74,6 +66,12 @@
 	</section>
 
 	<main class="containerPhotographer">
+		<header class="enTete">
+			<a href="/index.html">
+				<img src="/asset/images/logo.png" alt="logo FishEye">
+			</a>
+		</header>
+
 		<!-- info photographer -->
 		<div class="bannerPhotographer"></div>
 		<!-- function bannerPhotographer -->
@@ -81,6 +79,8 @@
 			<!-- function galeriePhotographer -->
 		</div>
 	</main>
+
 	<script src="/photographer/script/app.js" type="module"></script>
+	
 </body>
 </html>

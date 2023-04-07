@@ -26,18 +26,24 @@
 
 @media screen and (max-width: 750px) {
   .overlay {
-    justify-content: center;
     padding: 0.5rem 2.5rem;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .overlay {
-    padding: 0.5rem 9rem;
+    width: 83%;
+    min-width: 238px;
     left: 50%;
     transform: translate(-50%, 0%);
     transition: none;
+    padding: 0.5rem 0.5rem;
+  }
+  .overlay__nbrTotalLikes, .overlay__prixJour {
+    padding: 0;
+    justify-content: space-around;
   }
   .overlay:hover {
     transform: none;
+    border: none;
   }
 }/*# sourceMappingURL=overlay.css.map */

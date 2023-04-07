@@ -13,10 +13,20 @@ body {
   height: 100vh;
   margin: 0 auto;
   max-width: 1450px;
+  overflow: hidden;
+}
+.container h1 {
+  font-style: 36px;
+  font-weight: 400;
+}
+@media screen and (max-width: 750px) {
+  .container h1 {
+    font-size: 20px;
+  }
 }
 .container header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 1rem auto;
 }
 .container header img {
@@ -25,6 +35,11 @@ body {
 }
 .container header h1 {
   color: #901c1c;
+}
+@media screen and (max-width: 750px) {
+  .container .enTete img {
+    width: 40%;
+  }
 }
 .container__galeriesPhotographe {
   display: flex;
@@ -38,7 +53,7 @@ body {
   margin: 0 auto;
 }
 .container .cardPhotographe {
-  width: 13.5rem;
+  min-width: 215px;
   margin: 0 0 1rem 0;
 }
 .container .cardPhotographe .linkToPhotographer {

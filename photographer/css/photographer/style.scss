@@ -26,12 +26,21 @@ body {
 	margin: $mr_2auto;
 	
 	img {
-		width: 20%;
+		width: 15%;
 		object-fit: contain;
 		transition: .3s;
 
 		&:hover {
 			transform: scale(1.1);
+		}
+	}
+}
+
+@media screen and (max-width:750px) {
+	
+	.enTete {
+		img {
+			width: 40%;
 		}
 	}
 }
@@ -139,6 +148,13 @@ body {
 				text-align: center;
 	
 			}
+		}	
+	} 
+	@media screen and (max-width:350px) {
+		.bannerPhotographer {
+			margin: 0 1rem;
+			
+			
 		}	
 	} 
 	
