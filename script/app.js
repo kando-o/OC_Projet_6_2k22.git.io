@@ -1,6 +1,10 @@
 import { getData } from "../utils/API.js";
 
-const contentMain =  (data) => {
+/**
+ * créaton des cards photographe sur la HP
+ * @param {Promise} objet 
+ */
+const contentMain = (data) => {
 	let containerGaleriesItemCard = document.querySelector('.container__galeriesPhotographe__itemCard')
 	data.photographers.map((el) => {
 		containerGaleriesItemCard.innerHTML += 
@@ -22,7 +26,8 @@ const contentMain =  (data) => {
 	})
 };
 
-window.onload = () => { // Permet de lancer la fonction seulement quand la page HTML est chargé
+window.onload = () => { 
+	// Permet de lancer la fonction seulement quand la page HTML est chargé
 	getData() 
 	.then((data) => {return contentMain(data)})
 }

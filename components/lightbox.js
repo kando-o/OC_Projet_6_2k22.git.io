@@ -51,7 +51,7 @@ export default class LightBox {
 		this.close = close;
 
 		const that = this;
-
+		
 		this.left.onclick = ()=>{ that.prevMedia() }
 		this.right.onclick = ()=>{ that.nextMedia() }
 		this.close.onclick = ()=>{ that.hide() }
@@ -75,9 +75,8 @@ export default class LightBox {
 		this.media = [...array]
 	}
 	
-	
 	/*
-	 * affichage de l'image au click sur la card / affichage vidéo au click sur une card
+	 * affichage de l'image au clic sur la card / affichage vidéo au clic sur une card
 	 */
 	_displayMedia() {
 		const elem = this.media[this.index];
@@ -97,7 +96,7 @@ export default class LightBox {
 	}
 
 	/**
-	 * cacher la lightbox au click sur la croix
+	 * cacher la lightbox au clic sur la croix
 	 */
 	hide() {
 		this.lightbox.style.display = "none";
@@ -106,7 +105,7 @@ export default class LightBox {
 	}
 
 	/**
-	 * afficher la lightbox au click sur une card/img
+	 * afficher la lightbox au clic sur une card/img
 	 */
 	show () {
 		this.lightbox.style.display = "block";
@@ -115,6 +114,7 @@ export default class LightBox {
 	}
 	
 	/**
+	 * affichage du média au clic sur une card
 	 * @param {string} src url du media
 	 */
 	openMedia(src) {
@@ -141,7 +141,10 @@ export default class LightBox {
 		this._displayMedia();
 		this.onPrevMedia()
 	}
-
+	
+	/**
+	 * joue le média dans la lightbox
+	 */
 	play() {
 		
 	}

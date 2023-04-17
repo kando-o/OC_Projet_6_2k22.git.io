@@ -1,8 +1,9 @@
 /**
- * @param {object from getUrl} IDPHOTOGRAPHER 
- * @param {object from getUrl} media 
+ * @param {object} IDPHOTOGRAPHER tableau d'objet
+ * @param {object} media tableau d'objet
  */
 export const overlay = (IDPHOTOGRAPHER, media) => {
+	console.log(media, IDPHOTOGRAPHER);
 	const body = document.querySelector('body')
 	const nbrLikesTotal = media.map(el => el.likes).reduce((som, el) => (som + el), 0)
 	
@@ -10,7 +11,7 @@ export const overlay = (IDPHOTOGRAPHER, media) => {
 	`	
 		<div class="overlay" tabindex="0">
 		<div class="overlay__nbrTotalLikes" tabindex="0"> ${nbrLikesTotal} &#10086</div>
-		<div class="overlay__prixJour" tabindex="0"> ${IDPHOTOGRAPHER.price}€ / jour  </div>
+		<div class="overlay__prixJour" tabindex="0"> ${IDPHOTOGRAPHER.price}€ / jour</div>
 		</div>
 	`
 )}

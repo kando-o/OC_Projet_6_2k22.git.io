@@ -9,7 +9,7 @@ import { conterLike } from "../../components/likes.js";
 /**
  * @param {object} media 
  * @param {object} photographer 
- * @returns div card
+ * @return div card
  */
 const createDivGaleriePhotographer = (media, photographer) => {
 	const galeriePhotographer = document.querySelector('.galeriePhotographer');
@@ -48,7 +48,6 @@ const createDivGaleriePhotographer = (media, photographer) => {
 } 
 
 /**
- * 
  * @param {JSON} data 
  * @returns 
  */
@@ -67,17 +66,14 @@ const getUrl = (data) => {
  */
 window.onload = () => {
 	const myLightBox = new LightBox()
-
-	/**
-	 * @function | ajout du trie
-	 */
 	createDivTrie();
-
-	/**
-	 * @function | Recuperation de la data
-	 */
 	getData()
 
+	/**
+	 * 
+	 * @params {objet}
+	 * @Promise {objet}
+	 */
 	.then(data => {
 		console.log("incoming data");
 		return main(data);
@@ -118,16 +114,15 @@ window.onload = () => {
 			}
 		}))
 
-		// Faire apparaitre et disparaitre la lightbox avec hide/show dans lightbox.js
-		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow") }
-		myLightBox.onHide = ()=> { document.querySelector(".containerPhotographer").style.display = 'block'; console.log("onHide") }
+		// Faire apparaitre et disparaitre la lightbox avec hide/show depuis lightbox.js
+		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow")}
+		myLightBox.onHide = ()=> { document.querySelector(".containerPhotographer").style.display = 'block'; console.log("onHide")}
 	})
 }
 
 /**
- * 
- * @param {object} data 
- * @returns | function getUrl(object data)
+ * @param {object} data tableau d'objet
+ * @returns getUrl(object data)
  */
 function main(data) {
 	console.log(data.photographers);

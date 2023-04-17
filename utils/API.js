@@ -4,8 +4,8 @@ const API = {
 }
 
 /**
- * @param {function} callback
- * @returns {Promise} | Fetche API
+ * fetch toutes les données depuis dataAll.json
+ * @returns {promise}
  */
 export const getData = () => {
 	return fetch(API.url + API.request_data) // chemin vers le data.json

@@ -1,5 +1,5 @@
 /**
- * 
+ * fonction pour crée une carte
  * @param {string} el 
  * @param {string} adclass 
  * @param {string} parent 
@@ -9,6 +9,7 @@ export const createCard = (el, addclass, parent) => {
 	const elName = document.createElement(el);
 
 	if (addclass && Array.isArray(addclass) && addclass.length > 0) 
+	//Array.isArray permet de déterminer si l'objet passé en argument est un objet dit Array
 		elName.classList.add(...addclass);
 	if (typeof parent == "string") 
 		document.querySelector(parent).appendChild(elName)
@@ -18,7 +19,7 @@ export const createCard = (el, addclass, parent) => {
 }
 
 /**
- *   création de la div Trie
+ * création de la div trie
  */
 export const createDivTrie = () => {
 	let banner = document.querySelector('.bannerPhotographer')
@@ -43,13 +44,15 @@ export const createDivTrie = () => {
 */
 export const addTrieListeners = () => {
 	const categorie = document.getElementById('Trie')
-	console.log(categorie.value);
 	const cards = [...document.querySelectorAll('.card')]
-	console.log(cards);
+	
+	/**
+	 * trie des cards : date, popularité, likes
+	 * @param {Event} e 
+	 */
 	const sortCards = (e) => {
 		const parent = document.querySelector('.galeriePhotographer')
-
-		// detach cards
+		// détach les cards
 		cards.map((el) => parent.removeChild(el) );
 		
 		if (e.target.value == 'popularite') {
@@ -76,7 +79,6 @@ export const addTrieListeners = () => {
 		cards.map((el) => parent.appendChild(el) );
 	}
 
-	// au changement de des options = évènement au clique sur catégorie => (sortCards)
 	categorie.onchange = categorie.onclick = sortCards 
-	const options = [...categorie.querySelectorAll('option')] 
+	// au changement de des options = évènement au clique sur catégorie => (sortCards)
 }

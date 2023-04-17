@@ -1,10 +1,8 @@
 /**
- * 
- * @param {object} domCards | cards du dom 
- * @function | ajout et suppréssion du like
+ * conteur des likes ajout et suppréssion du like
+ * @param {object} domCards cards du dom 
  */
 export const conterLike = (domCards) => {
-	
 	//liste des coeurs
 	domCards.map(domCard => {
 		domCard.querySelector(".card__info")
@@ -33,8 +31,8 @@ export const conterLike = (domCards) => {
 }
 
 /**
- * @param {object} domCards 
- * maj des likes totales quand => (conterlike) on
+ * maj des likes totales quand conterlike()
+ * @param {object} domCards card du dom
  */
 const updateLikes = (domCards) => {
 	const total = domCards.reduce((sum, dom) => sum + (+dom.querySelector('.card__infoLike').textContent), 0)
