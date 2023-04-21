@@ -1,8 +1,8 @@
 export default class LightBox {
-
+	
 	constructor() {
 		const body = document.querySelector('body');
-
+		
 		const lightBox = document.createElement('figure');
 		const img = document.createElement('img');
 		const video = document.createElement('video');
@@ -100,7 +100,7 @@ export default class LightBox {
 	 */
 	hide() {
 		this.lightbox.style.display = "none";
-		this.onHide();
+		this.onHide && this.onHide();
 		document.removeEventListener("keydown", this.inputListeners); 
 	}
 
@@ -109,7 +109,7 @@ export default class LightBox {
 	 */
 	show () {
 		this.lightbox.style.display = "block";
-		this.onShow();
+		this.onShow && this.onShow();
 		document.addEventListener("keydown", this.inputListeners);
 	}
 	
@@ -141,7 +141,7 @@ export default class LightBox {
 		this._displayMedia();
 		this.onPrevMedia()
 	}
-	
+
 	/**
 	 * joue le média dans la lightbox
 	 */

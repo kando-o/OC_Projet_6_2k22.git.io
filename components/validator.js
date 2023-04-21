@@ -6,7 +6,7 @@ const Validator = {
 	 * @returns {boolean} true si valide sinon false
 	 */
 	checkName : (pStrValue, spanError=null) => {
-		spanError&& (spanError.textContent = '')
+		spanError&& (spanError.textContent = '');
 		
 		if (pStrValue.length < 2) {
 			console.log('ChampNom --> il faut au moins 2 carractères');

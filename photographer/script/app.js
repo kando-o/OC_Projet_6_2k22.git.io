@@ -18,9 +18,9 @@ const createDivGaleriePhotographer = (media, photographer) => {
 	nomde = nomde.split('-').join(' '); // renvoi un tablean de string sans le *-* entre les string et renvoi une chaine de carractère
 	
 	if (media.hasOwnProperty('image')) {
-		objetMedia = `<img src="/Sample Photos/${nomde}/${media.image}" alt="${nomde+" "+media.alt}" tabindex="0" class="card__imageCard">`;
+		objetMedia = `<img src="./Sample Photos/${nomde}/${media.image}" alt="${nomde+" "+media.alt}" tabindex="0" class="card__imageCard">`;
 	} else if (media.hasOwnProperty('video')) {
-		objetMedia = `<video src="/Sample Photos/${nomde}/${media.video}" alt="${nomde+" "+media.alt}" controls tabindex="0" class="card__imageCard"></video> `;
+		objetMedia = `<video src="./Sample Photos/${nomde}/${media.video}" alt="${nomde+" "+media.alt}" controls tabindex="0" class="card__imageCard"></video> `;
 	}
 	
 	const card = document.createElement("div");
@@ -114,7 +114,7 @@ window.onload = () => {
 			}
 		}))
 
-		// Faire apparaitre et disparaitre la lightbox avec hide/show depuis lightbox.js
+		// Faire apparaitre et disparaitre le background de la lightbox onhide / onshow depuis lightbox.js
 		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow")}
 		myLightBox.onHide = ()=> { document.querySelector(".containerPhotographer").style.display = 'block'; console.log("onHide")}
 	})

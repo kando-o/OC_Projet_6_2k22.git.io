@@ -1,5 +1,5 @@
 const API = {
-	url : "http://127.0.0.1:5500/",
+	url : "./",
 	request_data :"data/dataAll.json"
 }
 
