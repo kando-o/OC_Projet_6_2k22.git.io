@@ -8,9 +8,13 @@ import Validator from "./validator.js";
  */
 const formulaireEvent = ( namePhotographe ) => {
 	const formulaire = document.querySelector('.formulaire')
+	const containerPhotographer = document.querySelector('.containerPhotographer')
+
 	const bgFormulaire = document.querySelector('.bgFormulaire')
 	const btnContactMoi = document.querySelector('.bannerContact');
 	const btnFormulaireClose = document.querySelector('.btnFormulaireClose')
+	const btnMerci = document.querySelector('.btn-merci')
+
 	const prenom = document.getElementById('prenom');
 	const nom = document.getElementById('nom');
 	const email = document.getElementById('email');
@@ -25,20 +29,28 @@ const formulaireEvent = ( namePhotographe ) => {
 	btnFormulaireClose.nextElementSibling.innerHTML = namePhotographe;
 	
 	btnContactMoi.addEventListener('click', () => {
-		console.log("click bgFormulaire block");
+		console.log("click btn contact-moi");
 		bgFormulaire.style.display = "block";
 		formulaire.style.display = "block";
+		containerPhotographer.style.display = "none";
 		btnFormulaireClose.focus(); // Permet de focus sur le formulaire fermer le formulaire avec *espace*
 	})
 
 	btnFormulaireClose.addEventListener('click', (e) => {
 		bgFormulaire.style.display = "none";
-		console.log("click bgFormulaire none");
+		containerPhotographer.style.display = "block";
+		console.log("click btn close formulaire");
 	})
 
 	btnModalMerci_close.addEventListener('click', (e) => {
 		bgFormulaire.style.display = "none";
+		containerPhotographer.style.display = "block";
 		console.log("click btnModalMerci_close none");
+	})
+
+	btnMerci.addEventListener('click', () => {
+		containerPhotographer.style.display = "block";
+		console.log("click btn-Merci close ");
 	})
 
 	/**
