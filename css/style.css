@@ -42,7 +42,7 @@ body {
 }
 @media screen and (max-width: 750px) {
   .container .enTete img {
-    width: 40%;
+    width: 20%;
   }
 }
 .container__galeriesPhotographe {

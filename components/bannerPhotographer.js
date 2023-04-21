@@ -143,7 +143,7 @@ export const bannerPhotographer = (photographer) => {
 		</div>
 		<button class="bannerContact">contacter-moi</button>
 		<div class="bannerPhotographer__image" tabindex="0">
-			<img src="/Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.name}">
+			<img src="./Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.name}">
 		</div>
 		`
 	formulaireEvent(photographer.name)
