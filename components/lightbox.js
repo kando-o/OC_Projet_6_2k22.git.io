@@ -52,9 +52,9 @@ export default class LightBox {
 
 		const that = this;
 		
-		this.left.onclick = ()=>{ that.prevMedia() }
-		this.right.onclick = ()=>{ that.nextMedia() }
-		this.close.onclick = ()=>{ that.hide() }
+		this.left.onclick = ()=>{ that.prevMedia() };
+		this.right.onclick = ()=>{ that.nextMedia() };
+		this.close.onclick = ()=>{ that.hide() };
 
 		this.inputListeners = (e)=> {
 			switch (e.code) {
@@ -65,14 +65,14 @@ export default class LightBox {
 			}
 		}
 
-		this.onShow = ()=>{}
-		this.onHide = ()=>{}
-		this.onNextMedia = ()=>{}
-		this.onPrevMedia = ()=>{}
+		this.onShow = ()=>{};
+		this.onHide = ()=>{};
+		this.onNextMedia = ()=>{};
+		this.onPrevMedia = ()=>{};
 	}
 
 	setMedia (array) {
-		this.media = [...array]
+		this.media = [...array];
 	}
 	
 	/*
@@ -89,7 +89,7 @@ export default class LightBox {
 			this.video.style.display = 'block';
 		} else {
 			this.video.style.display = 'none';
-			this.img.src = elem.src
+			this.img.src = elem.src;
 			this.img.style.display = 'block';
 		}
 		this.title.textContent = elem.title;
@@ -130,7 +130,7 @@ export default class LightBox {
 	nextMedia() {
 		this.index = (this.index+1) % this.media.length;
 		this._displayMedia();
-		this.onNextMedia()
+		this.onNextMedia();
 	}
 
 	/**
@@ -139,7 +139,7 @@ export default class LightBox {
 	prevMedia() {
 		this.index = (this.media.length + this.index-1) % this.media.length;
 		this._displayMedia();
-		this.onPrevMedia()
+		this.onPrevMedia();
 	}
 
 	/**

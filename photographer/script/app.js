@@ -14,7 +14,7 @@ import { conterLike } from "../../components/likes.js";
 const createDivGaleriePhotographer = (media, photographer) => {
 	const galeriePhotographer = document.querySelector('.galeriePhotographer');
 	let objetMedia = "";
-	let nomde = photographer.name.split(' ').shift() // renvoi un tableau de string séparer par une virgule et suprime le première el du tableau
+	let nomde = photographer.name.split(' ').shift(); // renvoi un tableau de string séparer par une virgule et suprime le première el du tableau
 	nomde = nomde.split('-').join(' '); // renvoi un tablean de string sans le *-* entre les string et renvoi une chaine de carractère
 	
 	if (media.hasOwnProperty('image')) {
@@ -29,7 +29,7 @@ const createDivGaleriePhotographer = (media, photographer) => {
 
 	const ls = localStorage.getItem("likes")
 	if (ls) {
-		const likesArray = JSON.parse(ls)
+		const likesArray = JSON.parse(ls);
 		if (likesArray.includes(media.id)) {
 			media.likes = (+media.likes)+1;
 		}
@@ -56,7 +56,7 @@ const getUrl = (data) => {
 	const urlId = url.searchParams.get('id'); // get params "id" in url
 	const IDPHOTOGRAPHER = data.photographers.find(el => el.id == urlId); // search in *data.photographer* el.photographerId == urlId
 	const media = data.media.filter(el => el.photographerId == IDPHOTOGRAPHER.id); // search in *data.media* el.photographerId == IDPHOTOGRAPHER.id
-	bannerPhotographer(IDPHOTOGRAPHER)
+	bannerPhotographer(IDPHOTOGRAPHER);
 	return media.map((media) => createDivGaleriePhotographer(media, IDPHOTOGRAPHER), overlay(IDPHOTOGRAPHER, media));
 }
 
@@ -65,12 +65,11 @@ const getUrl = (data) => {
  * @returns {data} | promise de getData
  */
 window.onload = () => {
-	const myLightBox = new LightBox()
+	const myLightBox = new LightBox();
 	createDivTrie();
 	getData()
 
 	/**
-	 * 
 	 * @params {objet}
 	 * @Promise {objet}
 	 */
@@ -83,17 +82,17 @@ window.onload = () => {
 		addTrieListeners();
 
 		cards.map(card => {
-			const img = card.querySelector(".card__imageCard")
+			const img = card.querySelector(".card__imageCard");
 			/**
 			 * @function | évènement au click sur les cards
 			 */
 			const listener = () => {
-				myLightBox.openMedia(img.src)
-				myLightBox.lightbox.focus()
+				myLightBox.openMedia(img.src);
+				myLightBox.lightbox.focus();
 				console.log('test.focus nok');
 			}
-			img.onclick = listener
-			img.onkeydown = (e) => {if (e.code==="Enter") listener(e)}
+			img.onclick = listener;
+			img.onkeydown = (e) => {if (e.code==="Enter") listener(e)};
 		})
 		
 		conterLike(cards)
@@ -115,8 +114,8 @@ window.onload = () => {
 		}))
 
 		// Faire apparaitre et disparaitre le background de la lightbox onhide / onshow depuis lightbox.js
-		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow")}
-		myLightBox.onHide = ()=> { document.querySelector(".containerPhotographer").style.display = 'block'; console.log("onHide")}
+		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow")};
+		myLightBox.onHide = ()=> { document.querySelector(".containerPhotographer").style.display = 'block'; console.log("onHide")};
 	})
 }
 

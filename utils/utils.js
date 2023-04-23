@@ -8,7 +8,7 @@
 export const createCard = (el, addclass, parent) => {
 	const elName = document.createElement(el);
 
-	if (addclass && Array.isArray(addclass) && addclass.length > 0) 
+	if (addclass && Array.isArray(addclass) && addclass.length > 0);
 	//Array.isArray permet de déterminer si l'objet passé en argument est un objet dit Array
 		elName.classList.add(...addclass);
 	if (typeof parent == "string") 
@@ -22,7 +22,7 @@ export const createCard = (el, addclass, parent) => {
  * création de la div trie
  */
 export const createDivTrie = () => {
-	let banner = document.querySelector('.bannerPhotographer')
+	let banner = document.querySelector('.bannerPhotographer');
 	banner.insertAdjacentHTML('afterend', 
 	`	
 			<div class="trieAll">
@@ -43,8 +43,8 @@ export const createDivTrie = () => {
 * ajout de l'évènement sur le trie :date :popularité :titre
 */
 export const addTrieListeners = () => {
-	const categorie = document.getElementById('Trie')
-	const cards = [...document.querySelectorAll('.card')]
+	const categorie = document.getElementById('Trie');
+	const cards = [...document.querySelectorAll('.card')];
 	
 	/**
 	 * trie des cards : date, popularité, likes
@@ -79,6 +79,6 @@ export const addTrieListeners = () => {
 		cards.map((el) => parent.appendChild(el) );
 	}
 
-	categorie.onchange = categorie.onclick = sortCards 
+	categorie.onchange = categorie.onclick = sortCards;
 	// au changement de des options = évènement au clique sur catégorie => (sortCards)
 }

@@ -7,13 +7,14 @@ import Validator from "./validator.js";
  * @param {string} namePhotographe nom du photographe dans formulaire 
  */
 const formulaireEvent = ( namePhotographe ) => {
-	const formulaire = document.querySelector('.formulaire')
-	const containerPhotographer = document.querySelector('.containerPhotographer')
+	const formulaire = document.querySelector('.formulaire');
+	const containerPhotographer = document.querySelector('.containerPhotographer');
+	const bgFormulaire = document.querySelector('.bgFormulaire');
+	const bgFormulaireMerci = document.querySelector('.modal_merci');
 
-	const bgFormulaire = document.querySelector('.bgFormulaire')
 	const btnContactMoi = document.querySelector('.bannerContact');
-	const btnFormulaireClose = document.querySelector('.btnFormulaireClose')
-	const btnMerci = document.querySelector('.btn-merci')
+	const btnFormulaireClose = document.querySelector('.btnFormulaireClose');
+	const btnMerci = document.querySelector('.btn-merci');
 
 	const prenom = document.getElementById('prenom');
 	const nom = document.getElementById('nom');
@@ -22,9 +23,9 @@ const formulaireEvent = ( namePhotographe ) => {
 	const spanErrorNom = document.querySelector('.mesgErrorNom');
 	const spanErrorEmail = document.querySelector('.mesgErrorEmail');
 	
-	const btnModalMerci_close = document.querySelector('.close-modal-merci')
-	const modal_merci = document.querySelector('.modal_merci')
-	const btnModalMerci = document.querySelector('.btn-merci')
+	const btnModalMerci_close = document.querySelector('.close-modal-merci');
+	const modal_merci = document.querySelector('.modal_merci');
+	const btnModalMerci = document.querySelector('.btn-merci');
 
 	btnFormulaireClose.nextElementSibling.innerHTML = namePhotographe;
 	
@@ -79,24 +80,24 @@ const formulaireEvent = ( namePhotographe ) => {
 	 * @param {e} string
 	 */
 	prenom.addEventListener('input', (e) => {
-		let n = e.target.value
-		n = n.replace('--','-')
+		let n = e.target.value;
+		n = n.replace('--','-');
 		if (n.length!==e.target.value.length) {
-			e.target.value = n
-			spanErrorPrenom.textContent = "deux tirets"
+			e.target.value = n;
+			spanErrorPrenom.textContent = "deux tirets";
 		} else {
-			spanErrorPrenom.textContent = ''
+			spanErrorPrenom.textContent = '';
 		}
 	})
 
 	nom.addEventListener('input', (e) => {
-		let n = e.target.value
-		n = n.replace('--','-')
+		let n = e.target.value;
+		n = n.replace('--','-');
 		if (n.length!==e.target.value.length) {
-			e.target.value = n
-			spanErrorPrenom.textContent = "deux tirets"
+			e.target.value = n;
+			spanErrorPrenom.textContent = "deux tirets";
 		} else {
-			spanErrorPrenom.textContent = ''
+			spanErrorPrenom.textContent = '';
 		}
 	})
 	
@@ -122,21 +123,38 @@ const formulaireEvent = ( namePhotographe ) => {
 			&& Validator.checkName(nom.value, spanErrorNom)
 			&& Validator.checkMail(email.value, spanErrorEmail)) {
 			console.log('condition validation Nom OK | Prénom OK');
-			formulaire.style.display = "none"
-			modal_merci.style.display = "block"
+			formulaire.style.display = "none";
+			modal_merci.style.display = "block";
 		} else {
 			console.log('condition validation Nom NOK | Prénom NOK');
-			e.preventDefault()
+			e.preventDefault();
 		}
 	})
+
+	/**
+	 * au focus sur le modal de remerciement keydow space && escape => display none
+	 * @param {keydown} e 
+	 */
+	function formulaireInputListener(e) {
+		switch (e.code) {
+			case "Escape": bgFormulaire.style.display = "none"; break;
+			case "Space": bgFormulaire.style.display = "none"; break;
+		}
+	}
+
+	if (bgFormulaireMerci.style.display = 'bloc') {
+		console.log("bgFormulaireMerci true");
+		bgFormulaireMerci.focus();
+		bgFormulaireMerci.addEventListener('keydown',  formulaireInputListener)
+	}
 
 	btnModalMerci.addEventListener('click', () => {
 		bgFormulaire.style.display = "none";
 		console.log(`Le formulaire au nom de ${namePhotographe} à bien été envoyer`);
 	})
 
-	btnModalMerci_close.addEventListener('click', () => {
-		bgFormulaire.style.display = "none"
+	btnModalMerci_close.addEventListener('click', (e) => {
+		bgFormulaire.style.display = "none";
 	})	
 }
 
@@ -145,7 +163,7 @@ const formulaireEvent = ( namePhotographe ) => {
  * @param {object} photographer 
  */
 export const bannerPhotographer = (photographer) => {
-	const banner = document.querySelector('.bannerPhotographer')
+	const banner = document.querySelector('.bannerPhotographer');
 	banner.innerHTML = 
 		`
 		<div class="bannerPhotographer__info">
@@ -153,10 +171,10 @@ export const bannerPhotographer = (photographer) => {
 			<h2 class="bannerPhotographer__streetCity" tabindex="0">${photographer.city}, ${photographer.country}</h2>
 			<p class="bannerPhotographer__tagline" tabindex="0">${photographer.tagline}</p>
 		</div>
-		<button class="bannerContact">contacter-moi</button>
+		<button class="bannerContact">contactez-moi</button>
 		<div class="bannerPhotographer__image" tabindex="0">
 			<img src="./Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.name}">
 		</div>
 		`
-	formulaireEvent(photographer.name)
+	formulaireEvent(photographer.name);
 }

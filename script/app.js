@@ -5,7 +5,7 @@ import { getData } from "../utils/API.js";
  * @param {Promise} objet 
  */
 const contentMain = (data) => {
-	let containerGaleriesItemCard = document.querySelector('.container__galeriesPhotographe__itemCard')
+	let containerGaleriesItemCard = document.querySelector('.container__galeriesPhotographe__itemCard');
 	data.photographers.map((el) => {
 		containerGaleriesItemCard.innerHTML += 
 		`
