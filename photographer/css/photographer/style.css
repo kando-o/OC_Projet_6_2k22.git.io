@@ -36,7 +36,6 @@ body {
   grid-template-columns: 1fr 9rem 1fr;
   max-width: 1450px;
   margin: 0 auto;
-  box-shadow: 0 0 5px rgba(255, 192, 203, 0.5);
   background: #FAFAFA;
 }
 .containerPhotographer .bannerPhotographer__info {
@@ -131,16 +130,18 @@ body {
   font-family: "DM Sans", sans-serif;
   font-weight: 700;
   font-size: 18px;
+  line-height: 30px;
 }
 .trieAll select {
   font-family: "DM Sans", sans-serif;
   color: whitesmoke;
   font-weight: 700;
   font-size: 18px;
-  margin-left: 2em;
+  margin-left: 25px;
   background-color: #901c1c;
   padding: 1em;
   border-radius: 0.5rem;
+  border: none;
   cursor: pointer;
 }
 .trieAll select option {
@@ -169,12 +170,11 @@ body {
   width: 350px;
   grid-template-areas: "image image" "titre info";
   margin: 2rem;
-  grid-template-columns: 1fr 70px;
+  grid-template-columns: 1fr;
   grid-template-rows: 1fr 30px;
   gap: 5px;
-  border-radius: 2rem;
+  border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0 0 5px rgba(144, 28, 28, 0.5);
   cursor: pointer;
   transition: 0.3s;
 }
@@ -188,6 +188,12 @@ body {
   object-position: top;
   width: 100%;
   height: 300px;
+  border-radius: 5px;
+}
+.galeriePhotographer .card__media {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 .galeriePhotographer .card__titre {
   grid-area: titre;
@@ -202,4 +208,8 @@ body {
   gap: 0.5rem;
   grid-area: info;
   color: #901c1c;
+  line-height: 16px;
+}
+.galeriePhotographer .card__infoLike {
+  color: black;
 }/*# sourceMappingURL=style.css.map */

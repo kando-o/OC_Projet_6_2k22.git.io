@@ -38,9 +38,11 @@ const createDivGaleriePhotographer = (media, photographer) => {
 	card.innerHTML = 
 	`
 		${objetMedia}
-		<h3 class="card__titre">${media.title}</h3>
-		<div class="card__info" tabindex="0">
-			<p class="card__infoLike">${media.likes}</p><span class="card__like" tabindex="0"><img src="./asset/images/Heart.svg"</span>
+		<div class="card__media">
+			<h3 class="card__titre">${media.title}</h3>
+			<div class="card__info" tabindex="0">
+				<p class="card__infoLike">${media.likes}</p><span class="card__like" tabindex="0"><img src="./asset/images/Heart.svg"</span>
+			</div>
 		</div>
 	`
 	galeriePhotographer.appendChild(card);
