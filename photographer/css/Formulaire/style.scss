@@ -1,7 +1,6 @@
 $shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 $shadow_B: 0 0 5px rgba(black, .5);
 $shadow_Pink: 0 0 5px rgba(pink, .5);
-
 $secondaire: #d3573c;		
 		
 		// Formulaire
@@ -108,28 +107,29 @@ $secondaire: #d3573c;
 	}
 
 	.titre_formulaire{
-		margin: .5em 2em;
+		margin: 15px 2em;
 	}
 
 	.titre_formulaire h2{
-		font-size: 3.5em;
+		font-size: 46px;
 		font-weight: 100;
+		border: solid red;
 	}
 
 	.formulaire input{
 		display: flex;
-		flex-direction: row;
 		width: 90%;
+		height: 34px;
 		font-size: 1.5em;
 		border: none;
 		outline: none;
 		border-radius: .1em;
-		margin: .1em auto;
+		margin: 1.em auto;
 	}
 
 	.formulaire label{
-		font-size: 1.3em;
-		margin: 1.3em ;
+		font-size: 36px;
+		margin: .9em auto;
 		color: #312E2E;
 	}
 

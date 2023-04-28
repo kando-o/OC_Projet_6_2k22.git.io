@@ -20,7 +20,7 @@ const createDivGaleriePhotographer = (media, photographer) => {
 	if (media.hasOwnProperty('image')) {
 		objetMedia = `<img src="./Sample Photos/${nomde}/${media.image}" alt="${nomde+" "+media.alt}" tabindex="0" class="card__imageCard">`;
 	} else if (media.hasOwnProperty('video')) {
-		objetMedia = `<video src="./Sample Photos/${nomde}/${media.video}" alt="${nomde+" "+media.alt}" controls tabindex="0" class="card__imageCard"></video> `;
+		objetMedia = `<video src="./Sample Photos/${nomde}/${media.video}" alt="${nomde+" "+media.alt}" controls tabindex="0" class="card__imageCard"></video>`;
 	}
 	
 	const card = document.createElement("div");
@@ -41,7 +41,7 @@ const createDivGaleriePhotographer = (media, photographer) => {
 		<div class="card__media">
 			<h3 class="card__titre">${media.title}</h3>
 			<div class="card__info" tabindex="0">
-				<p class="card__infoLike">${media.likes}</p><span class="card__like" tabindex="0"><img src="./asset/images/Heart.svg"</span>
+				<p class="card__infoLike">${media.likes}</p><span class="card__like" tabindex="0"><img src="./asset/images/Heart.svg" alt="logo Heart"</span>
 			</div>
 		</div>
 	`

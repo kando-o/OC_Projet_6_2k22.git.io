@@ -12,7 +12,7 @@ const contentMain = (data) => {
 		<div class="cardPhotographe ${el.id}">
 			<a class="linkToPhotographer" href="./photographer.html?id=${el.id}" target="_blanc">
 				<div class="imgPhotographe">
-					<img src="./Sample Photos/Photographers ID Photos/${el.portrait}" alt="image du photographe">
+					<img src="./Sample Photos/Photographers ID Photos/${el.portrait}" alt="photo de ${el.name}">
 					<h2 tabindex="0">${el.name}</h2>
 				</div>
 			</a>

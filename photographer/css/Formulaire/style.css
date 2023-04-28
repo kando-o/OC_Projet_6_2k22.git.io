@@ -90,16 +90,15 @@
   box-shadow: green 4px 4px 5px;
 }
 .bgFormulaire .titre_formulaire {
-  margin: 0.5em 2em;
+  margin: 15px 2em;
 }
 .bgFormulaire .titre_formulaire h2 {
-  font-size: 3.5em;
+  font-size: 66px;
   font-weight: 100;
 }
 .bgFormulaire .formulaire input {
-  display: flex;
-  flex-direction: row;
   width: 90%;
+  height: 34px;
   font-size: 1.5em;
   border: none;
   outline: none;
@@ -107,8 +106,7 @@
   margin: 0.1em auto;
 }
 .bgFormulaire .formulaire label {
-  font-size: 1.3em;
-  margin: 1.3em;
+  font-size: 36px;
   color: #312E2E;
 }
 .bgFormulaire .formulaire textarea {
