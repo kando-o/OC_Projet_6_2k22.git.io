@@ -23,24 +23,24 @@
 		<form class="formulaire" aria-label="form" aria-labelledby="titreFormulaire" autofocus>
 			<div class="titre_formulaire">
 				<h2 id="titreFormulaire" tabindex="0">Contactez-moi</h2>
-				<span class="btnFormulaireClose" tabindex="0"></span>
+				<button class="btnFormulaireClose" tabindex="0">X</button>
 				<h2 tabindex="0">insertion du nom du photographe en js</h2>
 			</div>
 
-			<div>
+			<div class="fielEmpty">
 				<label for="prenom">Prénom</label>
 				<input type="text" name="prenom" id="prenom" required aria-required="true">
 				<span class="mesgErrorPrenom"></span>
 			</div>
 
-			<div>                
+			<div class="fielEmpty">                
 				<label for="nom">Nom
 					<input type="text" name="nom" id="nom" required aria-required="true">
 					<span class="mesgErrorNom"></span>
 				</label>
 			</div>
 
-			<div>
+			<div class="fielEmpty">
 				<label for="email">Email
 					<input type="email" name="email" id="email" required aria-required="true">
 					<span class="mesgErrorEmail"></span>
@@ -59,8 +59,8 @@
 
 		<div class="bg-modal-merci">
 			<div class="modal_merci">
-			<span class="close-modal-merci" tabindex="1"></span>
-			<p>Votre formulaire a bien été pris en compte</p>
+			<button class="close-modal-merci">X</button>
+			<h2>Votre formulaire a bien été pris en compte</h2>
 			<button class="btn-merci">Merci</button>
 			</div>
 		</div>

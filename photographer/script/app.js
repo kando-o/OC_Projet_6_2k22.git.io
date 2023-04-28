@@ -15,7 +15,7 @@ const createDivGaleriePhotographer = (media, photographer) => {
 	const galeriePhotographer = document.querySelector('.galeriePhotographer');
 	let objetMedia = "";
 	let nomde = photographer.name.split(' ').shift(); // renvoi un tableau de string séparer par une virgule et suprime le première el du tableau
-	nomde = nomde.split('-').join(' '); // renvoi un tablean de string sans le *-* entre les string et renvoi une chaine de carractère
+	nomde = nomde.split('-').join(' '); // renvoi un tableau de string sans le *-* entre les strings et renvoi une chaine de carractère
 	
 	if (media.hasOwnProperty('image')) {
 		objetMedia = `<img src="./Sample Photos/${nomde}/${media.image}" alt="${nomde+" "+media.alt}" tabindex="0" class="card__imageCard">`;
@@ -40,7 +40,7 @@ const createDivGaleriePhotographer = (media, photographer) => {
 		${objetMedia}
 		<div class="card__media">
 			<h3 class="card__titre">${media.title}</h3>
-			<div class="card__info" tabindex="0">
+			<div class="card__info">
 				<p class="card__infoLike">${media.likes}</p><span class="card__like" tabindex="0"><img src="./asset/images/Heart.svg" alt="logo Heart"</span>
 			</div>
 		</div>

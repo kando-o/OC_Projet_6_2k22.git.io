@@ -12,7 +12,7 @@ const Validator = {
 			console.log('ChampNom --> il faut au moins 2 carractères');
 			spanError && (spanError.textContent = 'il faut au moins 2 carractères');
 			return false
-		} else if (!/^[A-ZÄ-Ù]/.test(pStrValue)) {
+		} else if (!/[A-ZÄ-Ù]/.test(pStrValue)) {
 			console.log('ChampNom --> il manque une majuscule');
 			spanError && (spanError.textContent = 'il manque une majuscule');
 			return false

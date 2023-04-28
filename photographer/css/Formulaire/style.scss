@@ -3,7 +3,7 @@ $shadow_B: 0 0 5px rgba(black, .5);
 $shadow_Pink: 0 0 5px rgba(pink, .5);
 $secondaire: #d3573c;		
 		
-		// Formulaire
+	// Formulaire
 		
 .bgFormulaire{
     display: none;
@@ -46,27 +46,18 @@ $secondaire: #d3573c;
 		z-index: 99;
 	}
 
-	.close-modal-merci::after,
-	.close-modal-merci::before {
-		position:absolute;
-		top: 2rem;
-		right: 2rem;
-		content: "";
-		height: 2.5rem;
-		width: .3rem;
-		background-color: #fff;
+	.close-modal-merci {
+		background-color: transparent;
+		color: white;
+		border: none;
+		position: absolute;
+		right: 31px;
+		top: 20px;
+		font-size: 40px;
 		cursor: pointer;
 	}
 
-	.close-modal-merci::before {
-		transform: rotate(45deg);
-	}
-
-	.close-modal-merci::after {
-	  transform: rotate(-45deg);
-	}
-
-	.modal_merci p{
+	.modal_merci h2{
 		text-align: center;
 		position: relative;
 		font-size: 1.5em;
@@ -107,29 +98,28 @@ $secondaire: #d3573c;
 	}
 
 	.titre_formulaire{
-		margin: 15px 2em;
-	}
+		margin: 15px 2em 5px;
 
-	.titre_formulaire h2{
-		font-size: 46px;
-		font-weight: 100;
-		border: solid red;
+		h2 {
+			font-size: 42px;
+			font-weight: 400;
+		}
 	}
 
 	.formulaire input{
 		display: flex;
 		width: 90%;
-		height: 34px;
-		font-size: 1.5em;
+		height: 40px;
+		font-size: 1rem;
 		border: none;
 		outline: none;
 		border-radius: .1em;
-		margin: 1.em auto;
+		margin: 0 2rem;
 	}
 
 	.formulaire label{
-		font-size: 36px;
-		margin: .9em auto;
+		font-size: 30px;
+		margin: .9em 2rem;
 		color: #312E2E;
 	}
 
@@ -157,31 +147,16 @@ $secondaire: #d3573c;
 	}
 
 	.btnFormulaireClose{
+		background-color: transparent;
+		color: white;
 		border: none;
-		opacity: 1;
-	}
-
-	.btnFormulaireClose::before, 
-	.btnFormulaireClose::after{
 		position: absolute;
-		content: " ";
-		right:  3em;
-		top: 2em;
-		width: .4em;
-		height: 3em;
-		background-color: whitesmoke;
+		right: 31px;
+		top: 20px;
+		font-size: 40px;
 		cursor: pointer;
 	}
-
-	.btnFormulaireClose::after{
-		transform: rotate(-40deg);
-	}
-
-	.btnFormulaireClose::before{
-		transform: rotate(40deg);
-	}
-	
-			/* Media Queries FORMULAIRE  */
+		/* Media Queries FORMULAIRE  */
 	
 	@media screen and ( max-width: 750px ) { 
 		.formulaire{
@@ -189,13 +164,6 @@ $secondaire: #d3573c;
 			height: 37rem;
 			min-width: 300px;
 			margin: 0rem auto;
-		}
-
-		.btnFormulaireClose::before, 
-		.btnFormulaireClose::after{
-			height: 2rem;
-			right: 1.5rem;
-			top: 1rem;
 		}
 
 		.titre_formulaire{
@@ -223,7 +191,7 @@ $secondaire: #d3573c;
 			margin: .5em .7em;
 		}
 
-				//Modal merci
+			//Modal merci
 
 		.modal_merci{
 			width: 70%;

@@ -26,9 +26,9 @@ export const createDivTrie = () => {
 	banner.insertAdjacentHTML('afterend', 
 	`	
 			<div class="trieAll">
-				<p>Trier par</p>
+				<h2>Trier par</h2>
 				<label for="trie" aria-haspopup="true" aria-expanded="false">
-					<select name="trie" id="Trie">
+					<select name="trie" id="trie">
 						<option class="popularite" value="popularite">Popularité</option>
 						<option class="date" value="date">Date</option>
 						<option class="titre" value="titre">Titre</option>    
