@@ -25,16 +25,16 @@ export const createDivTrie = () => {
 	let banner = document.querySelector('.bannerPhotographer');
 	banner.insertAdjacentHTML('afterend', 
 	`	
-			<div class="trieAll">
-				<h2>Trier par</h2>
-				<label for="trie" aria-haspopup="true" aria-expanded="false">
-					<select name="trie" id="trie">
-						<option class="popularite" value="popularite">Popularité</option>
-						<option class="date" value="date">Date</option>
-						<option class="titre" value="titre">Titre</option>    
-					</select>
-				</label>
-			</div>
+		<div class="trieAll">
+			<h2>Trier par</h2>
+			<label for="trie" aria-haspopup="true" aria-expanded="false">
+				<select name="trie" id="trie">
+					<option class="popularite" value="popularite">Popularité</option>
+					<option class="date" value="date">Date</option>
+					<option class="titre" value="titre">Titre</option>    
+				</select>
+			</label>
+		</div>
 	`
 	);
 }
@@ -42,8 +42,8 @@ export const createDivTrie = () => {
 /**
 * ajout de l'évènement sur le trie :date :popularité :titre
 */
-export const addTrieListeners = () => {
-	const categorie = document.getElementById('Trie');
+export const addTrieListeners = (callback) => {
+	const categorie = document.getElementById('trie');
 	const cards = [...document.querySelectorAll('.card')];
 	
 	/**
@@ -53,7 +53,7 @@ export const addTrieListeners = () => {
 	const sortCards = (e) => {
 		const parent = document.querySelector('.galeriePhotographer')
 		// détach les cards
-		cards.map((el) => parent.removeChild(el) );
+		cards.map((el) => parent.removeChild(el));
 		
 		if (e.target.value == 'popularite') {
 			cards.sort((a , b) => {
@@ -76,9 +76,11 @@ export const addTrieListeners = () => {
 			})
 		}
 		// attach cards
-		cards.map((el) => parent.appendChild(el) );
+		cards.map((el) => parent.appendChild(el));
+
+		callback && callback();
 	}
 
-	categorie.onchange = categorie.onclick = sortCards;
+	categorie.onchange = sortCards;
 	// au changement de des options = évènement au clique sur catégorie => (sortCards)
 }

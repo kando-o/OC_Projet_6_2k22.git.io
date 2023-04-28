@@ -5,8 +5,7 @@
 export const conterLike = (domCards) => {
 	//liste des coeurs
 	domCards.map(domCard => {
-		domCard.querySelector(".card__info")
-		.addEventListener('click', () => {
+		const toggleLike = () => {
 			const like = domCard.querySelector('.card__infoLike');
 			const localLs = localStorage.getItem("likes")
 			const likesArray = JSON.parse( localLs ? localLs : "[]") 
@@ -26,6 +25,15 @@ export const conterLike = (domCards) => {
 
 			localStorage.setItem("likes", JSON.stringify(likesArray))
 			updateLikes(domCards)
+		}
+
+		const cardInfo = domCard.querySelector(".card__info");
+		cardInfo.addEventListener('click', toggleLike)
+		cardInfo.addEventListener('keydown', (e) => {
+			if (e.code==="Space" || e.code==="Enter") {
+				toggleLike();
+				e.preventDefault();
+			}
 		})
 	})
 }

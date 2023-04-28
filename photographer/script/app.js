@@ -1,4 +1,4 @@
-import { bannerPhotographer } from "../../components/bannerPhotographer.js";
+import { bannerPhotographer, formulaireEvent } from "../../components/bannerPhotographer.js";
 import { getData } from "../../utils/API.js";
 import { createDivTrie, addTrieListeners } from "../../utils/utils.js";
 
@@ -49,6 +49,7 @@ const createDivGaleriePhotographer = (media, photographer) => {
 	return card;
 } 
 
+
 /**
  * @param {JSON} data 
  * @returns 
@@ -59,8 +60,10 @@ const getUrl = (data) => {
 	const IDPHOTOGRAPHER = data.photographers.find(el => el.id == urlId); // search in *data.photographer* el.photographerId == urlId
 	const media = data.media.filter(el => el.photographerId == IDPHOTOGRAPHER.id); // search in *data.media* el.photographerId == IDPHOTOGRAPHER.id
 	bannerPhotographer(IDPHOTOGRAPHER);
+	formulaireEvent(IDPHOTOGRAPHER);
 	return media.map((media) => createDivGaleriePhotographer(media, IDPHOTOGRAPHER), overlay(IDPHOTOGRAPHER, media));
 }
+
 
 //Au chargement de la page
 /**
@@ -81,7 +84,22 @@ window.onload = () => {
 	})
 	.then(cards => {
 		
-		addTrieListeners();
+		const setLightboxMedia = () => {
+			const domCards = [...document.querySelectorAll('.card')];
+			// ajoute l'image la vidéo le titre et l'index à media
+			myLightBox.setMedia( domCards.map((card, index) => {
+				const elem = card.querySelector(".card__imageCard");
+				const title = card.querySelector(".card__titre").textContent;
+				return {
+					index,
+					type : elem.tagName,
+					src : elem.src,
+					title
+				}
+			}))
+		}
+
+		addTrieListeners(setLightboxMedia);
 
 		cards.map(card => {
 			const img = card.querySelector(".card__imageCard");
@@ -99,21 +117,7 @@ window.onload = () => {
 		
 		conterLike(cards)
 
-		/**
-		 * @function | ajoute l'image la vidéo le titre et l'index à media
-		 * @param {array}
-		 * @returns {object} 
-		 */
-		myLightBox.setMedia( cards.map((card, index) => {
-			const elem = card.querySelector(".card__imageCard");
-			const title = card.querySelector(".card__titre").textContent;
-			return {
-				index,
-				type : elem.tagName,
-				src : elem.src,
-				title
-			}
-		}))
+		setLightboxMedia()
 
 		// Faire apparaitre et disparaitre le background de la lightbox onhide / onshow depuis lightbox.js
 		myLightBox.onShow = ()=> { document.querySelector(".containerPhotographer").style.display = 'none'; console.log("onShow")};

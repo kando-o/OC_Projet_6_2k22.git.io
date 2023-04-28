@@ -1,6 +1,9 @@
-export default class LightBox {
+import Modal from "../utils/modal.js";
+
+export default class LightBox extends Modal {
 	
 	constructor() {
+
 		const body = document.querySelector('body');
 		
 		const lightBox = document.createElement('figure');
@@ -12,14 +15,18 @@ export default class LightBox {
 		left.textContent = "<"
 		left.classList.add("lightbox__arrow", "left")
 		left.tabIndex = 1;
+
 		const right = document.createElement("span");
 		right.textContent = ">"
 		right.classList.add("lightbox__arrow", "right")
 		right.tabIndex = 1;
+
 		const close = document.createElement("span");
 		close.textContent = "X"
 		close.classList.add("lightbox__arrow", "right", "close")
 		close.tabIndex = 1;
+
+		super(lightBox, close)
 
 		lightBox.classList.add('lightBox');
 		img.classList.add("lightBox__image");
@@ -54,19 +61,20 @@ export default class LightBox {
 		
 		this.left.onclick = ()=>{ that.prevMedia() };
 		this.right.onclick = ()=>{ that.nextMedia() };
-		this.close.onclick = ()=>{ that.hide() };
+		// this.close.onclick = ()=>{ that.hide() };
 
 		this.inputListeners = (e)=> {
 			switch (e.code) {
 				case "ArrowLeft": this.prevMedia(); break;
 				case "ArrowRight": this.nextMedia(); break;
-				case "Escape": this.hide(); break;
+				// case "Escape": this.hide(); break;
 				case "Space": this.play(); break;
 			}
 		}
 
-		this.onShow = ()=>{};
-		this.onHide = ()=>{};
+		// this.onShow = ()=>{};
+		// this.onHide = ()=>{};
+
 		this.onNextMedia = ()=>{};
 		this.onPrevMedia = ()=>{};
 	}
@@ -99,8 +107,7 @@ export default class LightBox {
 	 * cacher la lightbox au clic sur la croix
 	 */
 	hide() {
-		this.lightbox.style.display = "none";
-		this.onHide && this.onHide();
+		super.hide()
 		document.removeEventListener("keydown", this.inputListeners); 
 	}
 
@@ -108,8 +115,7 @@ export default class LightBox {
 	 * afficher la lightbox au clic sur une card/img
 	 */
 	show () {
-		this.lightbox.style.display = "block";
-		this.onShow && this.onShow();
+		super.show()
 		document.addEventListener("keydown", this.inputListeners);
 	}
 	
