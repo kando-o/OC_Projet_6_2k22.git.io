@@ -150,13 +150,15 @@ export const bannerPhotographer = (photographer) => {
 	const banner = document.querySelector('.bannerPhotographer');
 	banner.innerHTML = 
 		`
-		<div class="bannerPhotographer__info">
-			<h1 class="bannerPhotographer__name" tabindex="0">${photographer.name}</h1>
-			<h2 class="bannerPhotographer__streetCity" tabindex="0">${photographer.city}, ${photographer.country}</h2>
-			<p class="bannerPhotographer__tagline" tabindex="0">${photographer.tagline}</p>
+		<div class="bannerPhotographer__info" tabindex="0">
+			<h1 class="bannerPhotographer__name">${photographer.name}</h1>
+			<h2 class="bannerPhotographer__streetCity">${photographer.city}, ${photographer.country}</h2>
+			<p class="bannerPhotographer__tagline">${photographer.tagline}</p>
 		</div>
+
 		<button class="bannerContact">contactez-moi</button>
-		<div class="bannerPhotographer__image" tabindex="0">
+		
+		<div class="bannerPhotographer__image">
 			<img src="./Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.name}">
 		</div>
 		`

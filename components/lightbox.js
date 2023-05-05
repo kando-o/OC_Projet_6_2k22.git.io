@@ -67,7 +67,7 @@ export default class LightBox extends Modal {
 			switch (e.code) {
 				case "ArrowLeft": this.prevMedia(); break;
 				case "ArrowRight": this.nextMedia(); break;
-				// case "Escape": this.hide(); break;
+				case "Escape": e.preventdefault();
 				case "Space": this.play(); break;
 			}
 		}
