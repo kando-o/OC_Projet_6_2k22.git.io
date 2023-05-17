@@ -1,6 +1,6 @@
 // Formulaire
 
-import LightBox from "../../components/lightbox.js";
+import LightBox from "./lightbox.js";
 import Modal from "../utils/modal.js";
 import Validator from "./validator.js";
 
@@ -159,7 +159,7 @@ export const bannerPhotographer = (photographer) => {
 		<button class="bannerContact">contactez-moi</button>
 		
 		<div class="bannerPhotographer__image">
-			<img src="./Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.name}">
+			<img src="/asset/Sample Photos/Photographers ID Photos/${photographer.portrait}" alt="${photographer.name}">
 		</div>
 		`
 }

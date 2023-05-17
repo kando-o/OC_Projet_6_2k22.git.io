@@ -43,6 +43,7 @@ export const createDivTrie = () => {
 * ajout de l'évènement sur le trie :date :popularité :titre
 */
 export const addTrieListeners = (callback) => {
+	
 	const categorie = document.getElementById('trie');
 	const cards = [...document.querySelectorAll('.card')];
 	
@@ -51,6 +52,7 @@ export const addTrieListeners = (callback) => {
 	 * @param {Event} e 
 	 */
 	const sortCards = (e) => {
+
 		const parent = document.querySelector('.galeriePhotographer')
 		// détach les cards
 		cards.map((el) => parent.removeChild(el));
@@ -81,6 +83,6 @@ export const addTrieListeners = (callback) => {
 		callback && callback();
 	}
 
+	// au changement de valeur de option => sortCards()
 	categorie.onchange = sortCards;
-	// au changement de des options = évènement au clique sur catégorie => (sortCards)
 }

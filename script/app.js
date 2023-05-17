@@ -1,7 +1,7 @@
-import { getData } from "../utils/API.js";
+import { getData } from "/js/api/API.js";
 
 /**
- * créaton des cards photographe sur la HP
+ * création des cards photographe sur la HP
  * @param {Promise} objet 
  */
 const contentMain = (data) => {
@@ -10,9 +10,9 @@ const contentMain = (data) => {
 		containerGaleriesItemCard.innerHTML += 
 		`
 		<div class="cardPhotographe ${el.id}">
-			<a class="linkToPhotographer" href="./photographer.html?id=${el.id}" target="_blanc">
+			<a class="linkToPhotographer" href="./photographer/html/photographer.html?id=${el.id}" target="_blanc">
 				<div class="imgPhotographe">
-					<img src="./Sample Photos/Photographers ID Photos/${el.portrait}" alt="photo de ${el.name}">
+					<img src="/asset/Sample Photos/Photographers ID Photos/${el.portrait}" alt="photo de ${el.name}">
 					<h2 tabindex="0">${el.name}</h2>
 				</div>
 			</a>

@@ -10,8 +10,7 @@ $shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 	left: -50%;
 	transform: translate(50%, -50%);
 	width: 100%;
-	height: 90%;
-	box-shadow: $shadow_primaire;
+	height: 100vh;
 	overflow: hidden;
 	background : white;
 	z-index: 1;
@@ -36,7 +35,7 @@ $shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 		width : 100%;
 		bottom : 5%;
 		transform: translateY(25px);
-		text-align: center;
+		text-align:center;
 		color: #901c1c;
 		font-weight: 600;
 	}

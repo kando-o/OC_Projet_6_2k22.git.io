@@ -1,5 +1,5 @@
 const API = {
-	url : "./",
+	url : "/",
 	request_data :"data/dataAll.json"
 }
 

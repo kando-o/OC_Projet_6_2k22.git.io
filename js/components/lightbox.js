@@ -38,9 +38,10 @@ export default class LightBox extends Modal {
 		img.style.display = 'none';
 		video.style.display = 'none';
 
-		lightBox.appendChild(img);
-		lightBox.appendChild(video);
 		lightBox.appendChild(title);
+		lightBox.appendChild(img);
+		// img.appendChild(title)
+		lightBox.appendChild(video);
 		lightBox.appendChild(left);
 		lightBox.appendChild(right);
 		lightBox.appendChild(close);
@@ -87,10 +88,11 @@ export default class LightBox extends Modal {
 	 * affichage de l'image au clic sur la card / affichage vidéo au clic sur une card
 	 */
 	_displayMedia() {
+
 		const elem = this.media[this.index];
 		console.log("title:" + elem.title,
-					"src:"+ elem.src,
-					"type:"+ elem.type)
+		"src:"+ elem.src,
+		"type:"+ elem.type)
 		if (elem.type.toLowerCase() === 'video') {
 			this.img.style.display = 'none';
 			this.video.src = elem.src
@@ -100,6 +102,7 @@ export default class LightBox extends Modal {
 			this.img.src = elem.src;
 			this.img.style.display = 'block';
 		}
+		
 		this.title.textContent = elem.title;
 	}
 
