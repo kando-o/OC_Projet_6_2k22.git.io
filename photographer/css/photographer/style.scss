@@ -54,7 +54,7 @@ body {
 		display: grid;
 		grid-template-columns: 1fr 9rem 1fr;
 		max-width: 1450px;
-		margin: $mr_0auto;
+		margin: 2rem 2rem;
 		background: #FAFAFA;
 		
 		&__info {
@@ -163,7 +163,7 @@ body {
 .trieAll {
 	display: flex;
 	max-width: 1450px;
-	margin: $mr_2auto;
+	margin: 2rem 2rem;
 
 	h2 {
 		font-family: 'DM Sans', sans-serif;

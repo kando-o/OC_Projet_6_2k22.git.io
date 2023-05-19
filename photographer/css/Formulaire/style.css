@@ -158,6 +158,7 @@
     margin-left: 1rem;
   }
   .bgFormulaire .submit {
+    width: -moz-fit-content;
     width: fit-content;
     margin: 0.5em 0.7em;
   }
@@ -168,6 +169,7 @@
     margin: 0rem auto;
   }
   .bgFormulaire .btn-merci {
+    width: -moz-fit-content;
     width: fit-content;
     margin-top: -1rem;
   }

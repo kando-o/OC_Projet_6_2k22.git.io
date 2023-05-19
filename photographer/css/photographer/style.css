@@ -14,7 +14,8 @@ body {
 }
 .enTete img {
   width: 15%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: 0.3s;
 }
 .enTete img:hover {
@@ -35,7 +36,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 9rem 1fr;
   max-width: 1450px;
-  margin: 0 auto;
+  margin: 2rem 2rem;
   background: #FAFAFA;
 }
 .containerPhotographer .bannerPhotographer__info {
@@ -89,8 +90,10 @@ body {
   height: 10rem;
   margin: 1rem auto;
   border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .containerPhotographer .bannerPhotographer__image img:hover {
@@ -124,7 +127,7 @@ body {
 .trieAll {
   display: flex;
   max-width: 1450px;
-  margin: 2rem auto;
+  margin: 2rem 2rem;
 }
 .trieAll h2 {
   font-family: "DM Sans", sans-serif;
@@ -183,9 +186,12 @@ body {
 }
 .galeriePhotographer .card__imageCard {
   grid-area: image;
-  object-fit: cover;
-  object-position: center;
-  object-position: top;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-position: top;
+     object-position: top;
   width: 100%;
   height: 300px;
   border-radius: 5px;
