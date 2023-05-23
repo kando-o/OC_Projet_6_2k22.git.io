@@ -11,13 +11,17 @@
   background: white;
   z-index: 1;
 }
+.lightBox .lightBox__wrapper {
+  position: unset;
+  height: 100vh;
+  width: fit-content;
+  margin: 0 auto;
+}
 .lightBox .lightBox__image {
   position: relative;
-  -o-object-fit: contain;
-     object-fit: contain;
-  -o-object-position: top;
-     object-position: top;
-  width: calc(100% - 128px);
+  object-fit: contain;
+  object-position: top;
+  width: fit-content;
   margin: 0 auto;
   height: 90%;
   top: 50%;
@@ -31,7 +35,7 @@
   width: 100%;
   bottom: 5%;
   transform: translateY(25px);
-  text-align: center;
+  text-align: start;
   color: #901c1c;
   font-weight: 600;
 }

@@ -7,6 +7,7 @@ export default class LightBox extends Modal {
 		const body = document.querySelector('body');
 		
 		const lightBox = document.createElement('figure');
+		const wrapper = document.createElement('div')
 		const img = document.createElement('img');
 		const video = document.createElement('video');
 		const title = document.createElement("figcaption");
@@ -29,6 +30,7 @@ export default class LightBox extends Modal {
 		super(lightBox, close)
 
 		lightBox.classList.add('lightBox');
+		wrapper.classList.add('lightBox__wrapper')
 		img.classList.add("lightBox__image");
 		video.classList.add("lightBox__image", "lightBox__video");
 		video.setAttribute("controls", true);
@@ -38,10 +40,10 @@ export default class LightBox extends Modal {
 		img.style.display = 'none';
 		video.style.display = 'none';
 
-		lightBox.appendChild(title);
-		lightBox.appendChild(img);
-		// img.appendChild(title)
-		lightBox.appendChild(video);
+		wrapper.appendChild(title)
+		wrapper.appendChild(img)
+		wrapper.appendChild(video)
+		lightBox.appendChild(wrapper);
 		lightBox.appendChild(left);
 		lightBox.appendChild(right);
 		lightBox.appendChild(close);
@@ -62,7 +64,6 @@ export default class LightBox extends Modal {
 		
 		this.left.onclick = ()=>{ that.prevMedia() };
 		this.right.onclick = ()=>{ that.nextMedia() };
-		// this.close.onclick = ()=>{ that.hide() };
 
 		this.inputListeners = (e)=> {
 			switch (e.code) {
@@ -72,9 +73,6 @@ export default class LightBox extends Modal {
 				case "Space": this.play(); break;
 			}
 		}
-
-		// this.onShow = ()=>{};
-		// this.onHide = ()=>{};
 
 		this.onNextMedia = ()=>{};
 		this.onPrevMedia = ()=>{};
@@ -90,16 +88,16 @@ export default class LightBox extends Modal {
 	_displayMedia() {
 
 		const elem = this.media[this.index];
-		console.log("title:" + elem.title,
-		"src:"+ elem.src,
-		"type:"+ elem.type)
+	
 		if (elem.type.toLowerCase() === 'video') {
 			this.img.style.display = 'none';
-			this.video.src = elem.src
+			this.video.src = elem.src;
 			this.video.style.display = 'block';
+			this.video.setAttribute('alt', elem.alt);
 		} else {
 			this.video.style.display = 'none';
 			this.img.src = elem.src;
+			this.img.alt = elem.alt;
 			this.img.style.display = 'block';
 		}
 		

@@ -1,6 +1,4 @@
 $primaire:#901c1c;
-$shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
-
 
 .lightBox {
 	font-family: 'DM Sans', sans-serif;
@@ -15,11 +13,18 @@ $shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 	background : white;
 	z-index: 1;
 	
+	& .lightBox__wrapper {
+		position: unset;
+		height: 100vh;
+		width: fit-content;
+		margin: 0 auto;
+	}
+
 	& .lightBox__image {
 		position : relative;
 		object-fit: contain;
 		object-position: top;
-		width : calc(100% - 128px);
+		width : fit-content;
 		margin : 0 auto;
 		height : 90%;
 		top : 50%;
@@ -35,7 +40,7 @@ $shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
 		width : 100%;
 		bottom : 5%;
 		transform: translateY(25px);
-		text-align:center;
+		text-align:start;
 		color: #901c1c;
 		font-weight: 600;
 	}
