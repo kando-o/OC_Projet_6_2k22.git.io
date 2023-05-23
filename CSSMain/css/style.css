@@ -34,8 +34,7 @@ body {
 }
 .container header img {
   width: 15%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .container header h1 {
   color: #901c1c;
@@ -76,10 +75,8 @@ body {
   height: 10rem;
   margin: 1rem auto;
   border-radius: 50%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  object-fit: cover;
+  object-position: center;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 }
 .container .cardPhotographe .titreNomPhotographe {
