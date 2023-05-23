@@ -1,6 +1,6 @@
 /**
- * @param {object} IDPHOTOGRAPHER tableau d'objet
- * @param {object} media tableau d'objet
+ * @param {object} IDPHOTOGRAPHER
+ * @param {object} media
  */
 export const overlay = (IDPHOTOGRAPHER, media) => {
 	console.log(media, IDPHOTOGRAPHER);
