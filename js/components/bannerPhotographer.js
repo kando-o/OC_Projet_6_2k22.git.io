@@ -98,7 +98,6 @@ export const formulaireEvent = ( photographer ) => {
 		})
 
 
-
 	// #endregion
 
 	// #region - modale merci
@@ -118,14 +117,12 @@ export const formulaireEvent = ( photographer ) => {
 		}
 		btnMerci.addEventListener('click', () => { modalMerci.hide() })
 	// #endregion
-
 	
 	btnContactMoi.addEventListener('click', () => {
 		console.log("click btn contact-moi");
 		modal.show()
 	})
 	
-
 	// validation formulaire
 	formulaire.addEventListener('submit', (e) => {
 
