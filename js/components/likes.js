@@ -3,7 +3,7 @@
  * @param {object} domCards cards du dom 
  */
 export const conterLike = (domCards) => {
-	//liste des coeurs
+	
 	domCards.map(domCard => {
 		const toggleLike = () => {
 
