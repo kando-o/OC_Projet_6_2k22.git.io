@@ -7,7 +7,7 @@ export class Medias {
 	}
 
 	get picture() {
-		return `../../asset/Sample Photos/${this._nom}/${this.picture}`
+		return `../../asset/Sample Photos/${this._nom}/${this._picture}`
 	}
 
 	get alt() {
