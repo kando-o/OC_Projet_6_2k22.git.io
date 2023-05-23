@@ -130,9 +130,11 @@ export const formulaireEvent = ( photographer ) => {
 		if (Validator.checkName(prenom.value, spanErrorPrenom)
 			&& Validator.checkName(nom.value, spanErrorNom)
 			&& Validator.checkMail(email.value, spanErrorEmail)) {
-			console.log('condition validation Nom OK | Prénom OK');
-			modal.hide()
-			modalMerci.show()
+			modal.hide();
+			modalMerci.show();
+			console.log("nom valide = " + nom.value);
+			console.log("prénom valide = " + prenom.value);
+			console.log("nom email = " + email.value);
 		} else {
 			console.log('condition validation Nom NOK | Prénom NOK');
 		}
