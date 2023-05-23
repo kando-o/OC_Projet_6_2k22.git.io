@@ -16,10 +16,10 @@ const createDivGaleriePhotographer = (media, photographer) => {
 	const factory = new FactoryMedias();
 	const galeriePhotographer = document.querySelector('.galeriePhotographer');
 	const card = factory.createCard(photographer, media);
+	if (!card) return null;
 	galeriePhotographer.appendChild(card);
 	return card;
 } 
-
 
 /**
  * @param {JSON} data 
@@ -43,10 +43,10 @@ const getUrl = (data) => {
 	bannerPhotographer(IDPHOTOGRAPHER);
 	formulaireEvent(IDPHOTOGRAPHER);
 	
-	return media.map((media) => createDivGaleriePhotographer(media, IDPHOTOGRAPHER), overlay(IDPHOTOGRAPHER, media));
+	const cards = media.map((media) => createDivGaleriePhotographer(media, IDPHOTOGRAPHER), overlay(IDPHOTOGRAPHER, media))
+	return cards.filter(obj=>obj);
 
 }
-
 
 //Au chargement de la page
 /**
@@ -76,11 +76,13 @@ window.onload = () => {
 		myLightBox.setMedia( domCards.map((card, index) => {
 			const elem = card.querySelector(".card__imageCard");
 			const title = card.querySelector(".card__titre").textContent;
+			const alt = elem.getAttribute('alt');
 			return {
 				index,
 				type : elem.tagName,
 				src : elem.src,
-				title
+				title,
+				alt
 			}
 		}))
 	}
@@ -94,24 +96,22 @@ window.onload = () => {
 	// application du main en "seedant" les données
 	.then(data => getUrl(data) )
 
-	// génération des ...
 	.then(cards => {
-		
+
+		//Ajout de l'événement de trie
 		addTrieListeners(setLightboxMedia);
 
-		// ajout de la gestion des événements des images
+		// ajout de la gestion des événements du media
 		cards.map(card => {
-			const img = card.querySelector(".card__imageCard");
-
+			const media = card.querySelector(".card__imageCard");
 			// évènement au click sur les cards
 			const displayImageInLightbox = () => {
-				myLightBox.openMedia(img.src);
+				myLightBox.openMedia(media.src);
 				myLightBox.lightbox.focus();
-				console.log('test.focus nok');
 			}
 
-			img.onclick = displayImageInLightbox;
-			img.onkeydown = (e) => {if (["Enter","Space"].includes(e.code)) displayImageInLightbox()};
+			media.onclick = displayImageInLightbox;
+			media.onkeydown = (e) => {if (["Enter","Space"].includes(e.code)) displayImageInLightbox()};
 		})
 		
 		// mise à jour du compteur global de like de la page (dans l'overlay)
