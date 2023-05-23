@@ -1,7 +1,4 @@
 $shadow_primaire: 0 0 5px rgba(144, 28, 28, 0.5);
-$shadow_B: 0 0 5px rgba(black, .5);
-$shadow_Pink: 0 0 5px rgba(pink, .5);
-$secondaire: #d3573c;		
 		
 	// Formulaire
 		
@@ -16,19 +13,23 @@ $secondaire: #d3573c;
     left: 0; 
     background: #333333d3;
     z-index: 97;
+	overflow-y: auto;
 
 	.formulaire{
 		display: block;
 		position: fixed;
 		width: 669px;
 		min-width: 320px;
-		height: 700px;
+		max-height: 900px;
+		min-height: 700px;
+		height: 90dvh;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
 		background: #DB8876;
-		border-radius: 1em;
+		border-radius: 5px;
 		box-shadow: $shadow_primaire;
+		overflow-y: auto;
 		z-index: 100;
 	}
 
@@ -48,7 +49,7 @@ $secondaire: #d3573c;
 
 	.close-modal-merci {
 		background-color: transparent;
-		color: white;
+		color: black;
 		border: none;
 		position: absolute;
 		right: 31px;
@@ -62,7 +63,7 @@ $secondaire: #d3573c;
 		position: relative;
 		font-size: 1.5em;
 		top: 25rem;
-		color: white;
+		color: black;
 	}
 
 	.btn-merci{
@@ -88,9 +89,10 @@ $secondaire: #d3573c;
 	.mesgErrorPrenom,
 	.mesgErrorNom,
 	.mesgErrorEmail{
-		color: red;
+		color: rgb(80, 2, 2);
 		margin-left: 2rem;
 		font-size: 1.2rem;
+		font-weight: 800;
 	}
 
 	.champInputText-valid{
@@ -98,10 +100,13 @@ $secondaire: #d3573c;
 	}
 
 	.titre_formulaire{
+		display: flex;
+		position: relative;
+		flex-direction: column;
 		margin: 15px 2em 5px;
 
 		h2 {
-			font-size: 42px;
+			font-size: 64px;
 			font-weight: 400;
 		}
 	}
@@ -109,12 +114,12 @@ $secondaire: #d3573c;
 	.formulaire input{
 		display: flex;
 		width: 90%;
-		height: 40px;
-		font-size: 1rem;
+		height: 55px;
+		font-size: 3rem;
 		border: none;
 		outline: none;
 		border-radius: .1em;
-		margin: 0 2rem;
+		margin: .5rem 2rem;
 	}
 
 	.formulaire label{
@@ -148,12 +153,12 @@ $secondaire: #d3573c;
 
 	.btnFormulaireClose{
 		background-color: transparent;
-		color: white;
+		color: whitesmoke;
 		border: none;
 		position: absolute;
-		right: 31px;
-		top: 20px;
-		font-size: 40px;
+		right: 0px;
+		top: 0px;
+		font-size: 55px;
 		cursor: pointer;
 	}
 		/* Media Queries FORMULAIRE  */
