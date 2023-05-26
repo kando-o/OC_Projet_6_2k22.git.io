@@ -13,13 +13,13 @@ const contentMain = (data) => {
 			<a class="linkToPhotographer" href="./photographer/html/photographer.html?id=${el.id}" target="_blanc">
 				<div class="imgPhotographe">
 					<img src="/asset/Sample Photos/Photographers ID Photos/${el.portrait}" alt="photo de ${el.name}">
-					<h2 tabindex="0">${el.name}</h2>
+					<h2>${el.name}</h2>
 				</div>
 			</a>
 			<div class="titreNomPhotographe">
-				<h3 tabindex="0">${el.city}</h3> 
-				<p tabindex="0">${el.tagline}</p>
-				<p tabindex="0">${el.price}/jr</p>
+				<h3>${el.city}</h3> 
+				<p>${el.tagline}</p>
+				<p>${el.price}/jr</p>
 			</div>
 		</div>
 		` 
