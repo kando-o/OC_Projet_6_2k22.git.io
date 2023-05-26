@@ -26,7 +26,6 @@ const createDivGaleriePhotographer = (media, photographer) => {
  * @returns 
  */
 const getUrl = (data) => {
-	console.log(data.photographers)
 
 	// transforme l'url en un objet pratique | *ajoute des méthodes à l'URL*
 	const url = new URL(location.href);
@@ -60,12 +59,10 @@ window.onload = () => {
 	// Faire apparaitre et disparaitre le background de la lightbox onhide / onshow depuis lightbox.js
 	myLightBox.onShow = ()=> {
 		document.querySelector(".containerPhotographer").style.display = 'none';
-		console.log("onShow")
 	};
 
 	myLightBox.onHide = ()=> {
 		document.querySelector(".containerPhotographer").style.display = 'block';
-		console.log("onHide")
 	};
 
 	// fonction d'envoi des images à la lightbox

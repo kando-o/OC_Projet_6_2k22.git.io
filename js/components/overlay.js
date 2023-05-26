@@ -3,7 +3,6 @@
  * @param {object} media
  */
 export const overlay = (IDPHOTOGRAPHER, media) => {
-	console.log(media, IDPHOTOGRAPHER);
 	const body = document.querySelector('body')
 	const nbrLikesTotal = media.map(el => el.likes).reduce((som, el) => (som + el), 0)
 	

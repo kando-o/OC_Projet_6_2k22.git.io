@@ -70,7 +70,6 @@ export const addTrieListeners = (callback) => {
 				return new Date(t1)-new Date(t2)
 			})
 		} else if (e.target.value == 'titre') {
-			console.log(cards.map(f=> f.media.title))
 			cards.sort((a,b) => {
 				const t1 = a.media.title
 				const t2 = b.media.title

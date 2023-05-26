@@ -13,13 +13,11 @@ import Validator from "./validator.js";
  */
 export const validationField = (pField , state) => {
 	if (state === true) {
-		console.log('ChampsInputText OK');
 		pField.classList.remove('champInputText-invalid');
 		pField.classList.add('champInputText-valid');
 		return true
 	} 
 	else {
-		console.log('ChampsInputText NOK');
 		pField.classList.add('champInputText-invalid');
 		pField.classList.remove('champInputText-valid');
 		return false
@@ -53,7 +51,6 @@ export const formulaireEvent = ( photographer ) => {
 		const modal = new Modal(bgFormulaire, btnFormulaireClose)
 		modal.onHide = () => {
 			containerPhotographer.style.display = "block";
-			console.log("click btn close formulaire");
 		}
 		modal.onShow = () => {
 			containerPhotographer.style.display = "none";
@@ -84,12 +81,10 @@ export const formulaireEvent = ( photographer ) => {
 		})
 		
 		prenom.addEventListener('change', () => { 
-			console.log("prénom:" + " " + prenom.value);
 			return validationField(prenom, Validator.checkName(prenom.value, spanErrorPrenom))
 		})
 		
 		nom.addEventListener('change', () => {
-			console.log("nom:" + " " + nom.value); 
 			return validationField(nom, Validator.checkName(nom.value, spanErrorNom))
 		})
 
@@ -108,7 +103,6 @@ export const formulaireEvent = ( photographer ) => {
 		const modalMerci = new Modal(bgFormulaireMerci, btnMerciClose)
 		modalMerci.onHide = () => {
 			containerPhotographer.style.display = "block";
-			console.log("click btnModalMerci_close none");
 		}
 
 		modalMerci.onShow = () => {
@@ -119,25 +113,32 @@ export const formulaireEvent = ( photographer ) => {
 	// #endregion
 	
 	btnContactMoi.addEventListener('click', () => {
-		console.log("click btn contact-moi");
 		modal.show()
 	})
 	
 	// validation formulaire
 	formulaire.addEventListener('submit', (e) => {
-
+		
 		e.preventDefault()
+		
 		if (Validator.checkName(prenom.value, spanErrorPrenom)
-			&& Validator.checkName(nom.value, spanErrorNom)
-			&& Validator.checkMail(email.value, spanErrorEmail)) {
+		&& Validator.checkName(nom.value, spanErrorNom)
+		&& Validator.checkMail(email.value, spanErrorEmail)) {
+			
 			modal.hide();
 			modalMerci.show();
-			console.log("nom valide = " + nom.value);
-			console.log("prénom valide = " + prenom.value);
-			console.log("nom email = " + email.value);
-		} else {
-			console.log('condition validation Nom NOK | Prénom NOK');
+			
+			const inputFormulaire = { 
+				nom: nom.value,
+				prénom: prenom.value,
+				email: email.value,
+				message: message.value
+			}
+
+			return console.log(inputFormulaire);
 		}
+		
+
 	})
 }
 
