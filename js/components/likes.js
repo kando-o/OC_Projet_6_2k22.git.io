@@ -45,5 +45,5 @@ export const conterLike = (domCards) => {
  */
 const updateLikes = (domCards) => {
 	const total = domCards.reduce((sum, dom) => sum + (+dom.querySelector('.card__infoLike').textContent), 0)
-		document.querySelector(".overlay__nbrTotalLikes").innerHTML = `${total} &#10086`
+		document.querySelector(".overlay__nbrTotalLikes").innerHTML = `${total} <img src="/asset/images/Heart_black.svg" alt="image Heart_Black" />` 
 }
