@@ -10,7 +10,7 @@ const contentMain = (data) => {
 		containerGaleriesItemCard.innerHTML += 
 		`
 		<div class="cardPhotographe ${el.id}">
-			<a class="linkToPhotographer" href="./photographer/html/photographer.html?id=${el.id}" target="_blanc">
+			<a class="linkToPhotographer" href="Page/html/photographer.html?id=${el.id}" target="_blanc">
 				<div class="imgPhotographe">
 					<img src="/asset/Sample Photos/Photographers ID Photos/${el.portrait}" alt="photo de ${el.name}">
 					<h2>${el.name}</h2>

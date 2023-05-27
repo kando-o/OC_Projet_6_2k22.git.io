@@ -1,11 +1,11 @@
-import { bannerPhotographer, formulaireEvent } from "../../js/components/bannerPhotographer.js";
-import { getData } from "../../js/api/API.js";
-import { createDivTrie, addTrieListeners } from "../../js/utils/utils.js";
+import { bannerPhotographer, formulaireEvent } from "../../components/bannerPhotographer.js";
+import { getData } from "../../api/API.js";
+import { createDivTrie, addTrieListeners } from "../../utils/utils.js";
 
-import LightBox from "../../js/components/lightbox.js";
-import { overlay } from "../../js/components/overlay.js";
-import { conterLike } from "../../js/components/likes.js";
-import { FactoryMedias } from "../../js/factories/mediasFactorie.js";
+import LightBox from "../../components/lightbox.js";
+import { overlay } from "../../components/overlay.js";
+import { conterLike } from "../../components/likes.js";
+import { FactoryMedias } from "../../factories/mediasFactorie.js";
 
 /**
  * @param {object} media 
